@@ -37,5 +37,23 @@ html {
                 font-weight: 400;
             }
         }
+        #calendar_managment {
+            color: white;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 0 auto;
+            margin-top: 2vw;
+            font-size: 2vw;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+
+            p {
+                font-size: 4vw;
+                color: #9E9CA4;
+                font-weight: 700;
+                margin-top: -1vw;
+            }
+        }
     }
 }

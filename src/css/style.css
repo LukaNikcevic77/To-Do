@@ -33,4 +33,21 @@ html body header p {
   font-family: "Inter", sans-serif;
   font-size: 3vw;
   font-weight: 400;
+}
+html body #calendar_managment {
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 2vw;
+  font-size: 2vw;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+html body #calendar_managment p {
+  font-size: 4vw;
+  color: #9E9CA4;
+  font-weight: 700;
+  margin-top: -1vw;
 }/*# sourceMappingURL=style.css.map */
