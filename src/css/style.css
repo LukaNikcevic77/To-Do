@@ -50,4 +50,53 @@ html body #calendar_managment p {
   color: #9E9CA4;
   font-weight: 700;
   margin-top: -1vw;
+}
+html body #calendar_managment .monthholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2vw;
+}
+html body #calendar_managment .dayholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2vw;
+  margin-top: 2vw;
+}
+html body #calendar_managment .dayholder #prevday, html body #calendar_managment .dayholder #nextday {
+  font-size: 2vw;
+  margin-top: -1vw;
+}
+html body #calendar_managment #prevday {
+  transform: rotate(180deg);
+}
+html body #calendar_managment #prevmonth {
+  transform: rotate(180deg);
+  font-size: 2.5vw;
+}
+html body #calendar_managment #nextmonth {
+  font-size: 2.5vw;
+}
+html body #time_scale {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-areas: "time task";
+  overflow: scroll;
+  overflow-x: hidden;
+  max-height: 30vw;
+}
+html body #time_scale .time {
+  grid-area: "time";
+}
+html body #time_scale .task {
+  grid-area: "task";
+  background-color: red;
+  opacity: 0.6;
+  padding: 0.2vw 0;
+  border-top: 0.2vw gray solid;
+  border-bottom: 0.2vw gray solid;
+  height: 5vw;
+  width: auto;
+  margin-right: 10vw;
 }/*# sourceMappingURL=style.css.map */
