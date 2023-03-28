@@ -1,3 +1,7 @@
+$gray-light: #9E9CA4;
+$gray-dark:  #5A5A5A;
+
+
 *{
     padding: 0px;
     margin: 0px;
@@ -36,6 +40,25 @@ html {
                 font-size: 3vw;
                 font-weight: 400;
             }
+
+            .task-creator {
+                width: 15vw;
+                height: 4vw;
+                position: absolute;
+                left: 0;
+                top: 8vw;
+                background-color: $gray-dark;
+                text-align: right;
+                border-radius: 0px 0px 20px 0px;
+                h1 {
+                    font-family: 'Inter', sans-serif;
+                    font-weight: 800;
+                    font-size: 2vw;
+                    width: 15vw;
+                    margin-top: 0.6vw;
+                    margin-left: -3vw;
+                }
+            }
         }
         #calendar_managment {
             color: white;
@@ -47,12 +70,12 @@ html {
             font-size: 2vw;
             font-family: 'Montserrat', sans-serif;
             font-weight: bold;
-
+            
             p {
                 font-size: 4vw;
-                color: #9E9CA4;
+                color: $gray-light;
                 font-weight: 700;
-                margin-top: -1vw;
+                margin-top: -2vw;
             }
 
             .monthholder {
@@ -72,7 +95,7 @@ html {
 
                 #prevday, #nextday {
                     font-size: 2vw;
-                    margin-top: -1vw;
+                    margin-top: -2vw;
                 }
             }
 
@@ -92,27 +115,71 @@ html {
 
         #time_scale {
             display: grid;
-            grid-template-columns: 1fr 5fr;
+            grid-template-columns: 0.5fr 5fr;
             grid-template-areas: 
             "time task";
             overflow: scroll;
             overflow-x: hidden;
             max-height: 30vw;
+            padding-top: 2vw;
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+            scrollbar-width: none;  /* Firefox */
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
 
             .time {
                 grid-area: 'time';
+                color: $gray-light;
+                font-family: 'Inter', sans-serif;
+                font-weight: 600;
+                font-size: 1.8vw;
+                text-align: right;
+                padding-right: 1vw;
+                margin-top: -1vw;
             }
 
-            .task {
+            .task-holder {
                 grid-area: 'task';
-                background-color: red;
-                opacity: 0.6;
-                padding: 0.2vw 0;
-                border-top: 0.2vw gray solid;
-                border-bottom: 0.2vw gray solid;
-                height: 5vw;
+                
+                
+                padding-top: 0.3vw;
+                padding-bottom: 0.3vw;
+                border-top: 0.2vw $gray-light solid;
+                border-bottom: 0.05vw $gray-light solid;
+                height: 10vw;
                 width: auto;
                 margin-right: 10vw;
+
+                .task {
+                        height: 100%;
+                        width: 100%;
+                        color: rgba($color: #FF0202, $alpha: 0.81);
+                        background-color: rgba($color: #FF0202, $alpha: 0.34);
+                        display: flex;
+                        gap: 1vw;
+                        
+                        
+
+                        .mark {
+                            height: 100%;
+                            width: 0.8vw;
+                            background-color: rgba($color: #FF0202, $alpha: 1);
+                            
+                        }
+
+                        .details {
+                            font-family: 'Inter', sans-serif;
+                            font-weight: bold;
+                            font-size: 1.1vw;
+                            margin-top: 0.8vw;
+                            p {
+                                font-size: 2.2vw;
+                                font-weight: 400;
+                            }
+                        }
+                }
             }
         }
     }

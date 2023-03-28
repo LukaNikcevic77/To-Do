@@ -34,6 +34,24 @@ html body header p {
   font-size: 3vw;
   font-weight: 400;
 }
+html body header .task-creator {
+  width: 15vw;
+  height: 4vw;
+  position: absolute;
+  left: 0;
+  top: 8vw;
+  background-color: #5A5A5A;
+  text-align: right;
+  border-radius: 0px 0px 20px 0px;
+}
+html body header .task-creator h1 {
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  font-size: 2vw;
+  width: 15vw;
+  margin-top: 0.6vw;
+  margin-left: -3vw;
+}
 html body #calendar_managment {
   color: white;
   display: flex;
@@ -49,7 +67,7 @@ html body #calendar_managment p {
   font-size: 4vw;
   color: #9E9CA4;
   font-weight: 700;
-  margin-top: -1vw;
+  margin-top: -2vw;
 }
 html body #calendar_managment .monthholder {
   display: flex;
@@ -66,7 +84,7 @@ html body #calendar_managment .dayholder {
 }
 html body #calendar_managment .dayholder #prevday, html body #calendar_managment .dayholder #nextday {
   font-size: 2vw;
-  margin-top: -1vw;
+  margin-top: -2vw;
 }
 html body #calendar_managment #prevday {
   transform: rotate(180deg);
@@ -80,23 +98,58 @@ html body #calendar_managment #nextmonth {
 }
 html body #time_scale {
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 0.5fr 5fr;
   grid-template-areas: "time task";
   overflow: scroll;
   overflow-x: hidden;
   max-height: 30vw;
+  padding-top: 2vw;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+html body #time_scale::-webkit-scrollbar {
+  display: none;
 }
 html body #time_scale .time {
   grid-area: "time";
+  color: #9E9CA4;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 1.8vw;
+  text-align: right;
+  padding-right: 1vw;
+  margin-top: -1vw;
 }
-html body #time_scale .task {
+html body #time_scale .task-holder {
   grid-area: "task";
-  background-color: red;
-  opacity: 0.6;
-  padding: 0.2vw 0;
-  border-top: 0.2vw gray solid;
-  border-bottom: 0.2vw gray solid;
-  height: 5vw;
+  padding-top: 0.3vw;
+  padding-bottom: 0.3vw;
+  border-top: 0.2vw #9E9CA4 solid;
+  border-bottom: 0.05vw #9E9CA4 solid;
+  height: 10vw;
   width: auto;
   margin-right: 10vw;
+}
+html body #time_scale .task-holder .task {
+  height: 100%;
+  width: 100%;
+  color: rgba(255, 2, 2, 0.81);
+  background-color: rgba(255, 2, 2, 0.34);
+  display: flex;
+  gap: 1vw;
+}
+html body #time_scale .task-holder .task .mark {
+  height: 100%;
+  width: 0.8vw;
+  background-color: #ff0202;
+}
+html body #time_scale .task-holder .task .details {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 1.1vw;
+  margin-top: 0.8vw;
+}
+html body #time_scale .task-holder .task .details p {
+  font-size: 2.2vw;
+  font-weight: 400;
 }/*# sourceMappingURL=style.css.map */
