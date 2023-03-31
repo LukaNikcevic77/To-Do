@@ -12,10 +12,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
+    
     <title>planIt</title>
 </head>
-<body>
+<body id="body">
     <header>
         <h1>planIT</h1>
         <p>Projects</p>
@@ -25,121 +26,43 @@
             <h1>Add task</h1>
         </div>
     </header>
-    
-    <span id="calendar_managment">
-           <span class="monthholder"><i class="fa-solid fa-play"  id="prevmonth" style="color: #ffffff;"></i> <h1 id="Month">MON </h1><i class="fa-solid fa-play"  id="nextmonth" style="color: #ffffff;"></i></span>
-            <span class="dayholder"><i class="fa-solid fa-play" id="prevday" style="color: #ffffff;"></i><p id="Day">15</p><ii class="fa-solid fa-play" id="nextday" style="color: #ffffff;"></i></span>
+    <span id="calendar_managment" style="visibility: hidden;">
     </span>
-    <div id="time_scale">
-            <div class="time" data-clock="00:00">00:00</div>
-            <div class="task-holder">
-                <div class="task">
-                    <div class="mark"></div>
-                    <span class="details">
-                        
-                    <h1 class="taskName">Do some work</h1>
-                    <p class="detail1">Johns street 21</p>
-                    <p class="detail2">Big hall enterance</p></h1>
-                    </span>
-                </div>
-            </div>
-            <div class="time" data-clock="01:00">01:00</div>
-            <div class="task-holder">
-                <div class="task">
-                   
-                </div>
-            </div>
-            
-            <div class="time" data-clock="02:00">02:00</div>
-            <div class="task-holder">
-                <div class="task"></div>
-            </div>
-            <div class="time" data-clock="03:00">03:00</div>
-            <div class="task-holder">
-                <div class="task"></div>
-            </div>
-            <div class="time" data-clock="04:00">04:00</div>
-            <div class="task-holder">
-                <div class="task"></div>
-        </div>
-            <div class="time" data-clock="05:00">05:00</div>
-            <div class="task-holder">
-                <div class="task"></div>
-            </div>
-            <div class="time" data-clock="06:00">06:00</div>
-            <div class="task-holder">
-                <div class="task"></div>
-            </div>
-            <div class="time" data-clock="07:00">07:00</div>
-            <div class="task-holder">
-                <div class="task"></div>
-            </div>
-            <div class="time" data-clock="08:00">08:00</div>
-            <div class="task-holder">
-                <div class="task"></div>
-            </div>
-            <div class="time" data-clock="09:00">09:00</div>
-            <div class="task-holder">
-                <div class="task"></div>
-            </div>
-            <div class="time" data-clock="10:00">10:00</div>
-            <div class="task-holder">
-                <div class="task"></div>
-            </div>
-            <div class="time" data-clock="11:00">11:00</div>
-            <div class="task-holder">
-                <div class="task"></div>
-            </div>
-            <div class="time" data-clock="12:00">12:00</div>
-            <div class="task-holder">
-                <div class="task"></div>
-            </div>
-            <div class="time" data-clock="13:00">13:00</div>
-            <div class="task-holder">
-                <div class="task"></div>
-            </div>
-            <div class="time" data-clock="14:00">14:00</div>
-            <div class="task-holder">
-                <div class="task"></div>
-            </div>
-            <div class="time" data-clock="15:00">15:00</div>
-            <div class="task-holder">
-                <div class="task"></div>
-            </div>
-            <div class="time" data-clock="16:00">16:00</div>
-            <div class="task-holder">
-                <div class="task"></div>
-            </div>
-            <div class="time" data-clock="17:00">17:00</div>
-            <div class="task-holder">
-                <div class="task"></div>
-            </div>
-            <div class="time" data-clock="18:00">18:00</div>
-            <div class="task-holder">
-                <div class="task"></div>
-            </div>
-            <div class="time" data-clock="19:00">19:00</div>
-            <div class="task-holder">
-                <div class="task"></div>
-            </div>
-            <div class="time" data-clock="20:00">20:00</div>
-            <div class="task-holder">
-                <div class="task"></div>
-            </div>
-            <div class="time" data-clock="21:00">21:00</div>
-            <div class="task-holder">
-                <div class="task"></div>
-            </div>
-            <div class="time" data-clock="22:00">22:00</div>
-            <div class="task-holder">
-                <div class="task"></div>
-            </div>
-            <div class="time" data-clock="23:00">23:00</div>
-            <div class="task-holder">
-                <div class="task"></div>
+    <div id="time_scale" style="visibility: hidden;">
+    </div>
+
+    <div id="statsholder">
+        <span class="month n1">
+            <h1 class="monthname">January</h1>
+            <div class="statsblock">
+                    <h1 class="freetimetitle">FREE TIME</h1>
+                    <div style="width: 20vw; font-family: 'Inter', sans-serif; font-weight: 800;"><canvas id="myfirstchart"></canvas></div>
+                    
+                    
+                    
+                    <h1 class="averagefreetimetitle">AVERAGE FREE TIME</h1>
+
             </div>
 
-         
+        </span>
+        <span class="month n2">
+            <h1 class="monthname">February</h1>
+            <div class="statsblock">
+                <h1 class="freetimetitle">FREE TIME</h1>
+                    <h1 class="averagefreetimetitle">AVERAGE FREE TIME</h1>
+                
+            </div>
+
+        </span>
+        <span class="month n3">
+            <h1 class="monthname">March</h1>
+            <div class="statsblock">
+                <h1 class="freetimetitle">FREE TIME</h1>
+                    <h1 class="averagefreetimetitle">AVERAGE FREE TIME</h1>
+                
+            </div>
+        </span>
     </div>
+
 </body>
 </html>

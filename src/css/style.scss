@@ -182,5 +182,36 @@ html {
                 }
             }
         }
+
+        #statsholder {
+            display: flex;
+            gap: 10vw;
+            justify-content: center;
+            overflow: scroll;
+            overflow-y: hidden;
+            margin: 0 auto;
+            width: 90vw;
+            height: auto;
+            background-color: #FF0202;
+
+            .month {
+                height: auto;
+                padding: 2.5vw;
+                width: auto;
+            }
+
+
+            .statsblock {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 30vw;
+                width: auto;
+                padding: 1.5vw 3vw;
+                background-color: #5A5A5A;
+                font-size: 0.8vw;
+
+            }
+        }
     }
 }
