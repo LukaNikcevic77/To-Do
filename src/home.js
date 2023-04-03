@@ -2,10 +2,12 @@ export {HomePageUI};
 
 let HomePageUI = {
 
+    averageFreeTime: document.querySelectorAll('.freetimeholder'),
+    
     elements: [],
     
     makeElements(dates, tasks) {
-        
+      
       
         
       const monthHolder = document.createElement('span');

@@ -1,4 +1,6 @@
 import { Chart, scales } from "chart.js/auto";
+import { HomePageUI } from "./home";
+
 
 
 Chart.defaults.color = '#ffffff';
@@ -13,19 +15,70 @@ Chart.defaults.font.weight = '800';
       { week: 4, hours: 45 }
      
     ];
+    const piedata = {
+      labels: [
+        'Tasks uncompleted',
+        'Tasks completed',
+          
+      ],
+      
+      datasets: [{
+        label: 'Tasks',
+        data: [300, 50],
+        backgroundColor: [
+          'red',
+          'blue',
+          
+        ],
+        hoverOffset: 4,
+        
+      }],
+
+      
+      
+    };
+
+    const config = {
+      type: 'doughnut',
+      data: piedata,
+
+      options: {
+        plugins: {
+
+          legend: {
+            position: 'bottom',
+            display: false,
+
+            labels: {
+              
+
+              font: {
+                size: window.innerWidth / 100
+              }
+            }
+            
+          }
+        },
+        scales:{
+          
+        },
+
+      }
+    }
   
     new Chart(
       document.getElementById('januarychart'),
-      
+     
       {
         type: 'bar',
         data: {
-          labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
+          labels: ["1", "2", "3", "4"],
           datasets: [
             {
               
               data: data.map(row => row.hours),
-              backgroundColor: '#FFFF'
+              backgroundColor: '#FFFF',
+              
             }
           ]
         },
@@ -33,7 +86,7 @@ Chart.defaults.font.weight = '800';
 
             responsive: true,
             maintainAspectRatio: true,
-            aspectRatio: 2,
+            maintainAspectRatio: false,
             plugins: {
                 legend: {
                     display: false,
@@ -92,6 +145,10 @@ Chart.defaults.font.weight = '800';
         }
       
     );
+    new Chart(
+      document.getElementById('januaryfreetime'),
+      config
+    )
   })();
 //Chart February
 (async function() {
@@ -102,6 +159,56 @@ Chart.defaults.font.weight = '800';
     { week: 4, hours: 45 }
    
   ];
+  const piedata = {
+    labels: [
+      'Tasks uncompleted',
+      'Tasks completed',
+        
+    ],
+    
+    datasets: [{
+      label: 'Tasks',
+      data: [300, 50],
+      backgroundColor: [
+        'red',
+        'blue',
+        
+      ],
+      hoverOffset: 4,
+      
+    }],
+
+    
+    
+  };
+
+  const config = {
+    type: 'doughnut',
+    data: piedata,
+
+    options: {
+      plugins: {
+
+        legend: {
+          position: 'bottom',
+          display: false,
+
+          labels: {
+            
+
+            font: {
+              size: window.innerWidth / 100
+            }
+          }
+          
+        }
+      },
+      scales:{
+        
+      },
+
+    }
+  }
 
   new Chart(
     document.getElementById('februarychart'),
@@ -109,7 +216,7 @@ Chart.defaults.font.weight = '800';
     {
       type: 'bar',
       data: {
-        labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
+        labels: ["1", "2", "3", "4"],
         datasets: [
           {
             
@@ -121,8 +228,8 @@ Chart.defaults.font.weight = '800';
       options: {
 
           responsive: true,
-          maintainAspectRatio: true,
-          aspectRatio: 2,
+          maintainAspectRatio: false,
+          
           plugins: {
               legend: {
                   display: false,
@@ -181,6 +288,11 @@ Chart.defaults.font.weight = '800';
       }
     
   );
+  new Chart(
+    document.getElementById('februaryfreetime'),
+    config
+  );
+  
 })();
 //Chart March
 (async function() {
@@ -191,6 +303,56 @@ Chart.defaults.font.weight = '800';
     { week: 4, hours: 45 }
    
   ];
+  const piedata = {
+    labels: [
+      'Tasks uncompleted',
+      'Tasks completed',
+        
+    ],
+    
+    datasets: [{
+      label: 'Tasks',
+      data: [300, 50],
+      backgroundColor: [
+        'red',
+        'blue',
+        
+      ],
+      hoverOffset: 4,
+      
+    }],
+
+    
+    
+  };
+
+  const config = {
+    type: 'doughnut',
+    data: piedata,
+
+    options: {
+      plugins: {
+
+        legend: {
+          position: 'bottom',
+          display: false,
+
+          labels: {
+            
+
+            font: {
+              size: window.innerWidth / 100
+            }
+          }
+          
+        }
+      },
+      scales:{
+        
+      },
+
+    }
+  }
 
   new Chart(
     document.getElementById('marchchart'),
@@ -198,7 +360,7 @@ Chart.defaults.font.weight = '800';
     {
       type: 'bar',
       data: {
-        labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
+        labels: ["1", "2", "3", "4"],
         datasets: [
           {
             
@@ -210,8 +372,7 @@ Chart.defaults.font.weight = '800';
       options: {
 
           responsive: true,
-          maintainAspectRatio: true,
-          aspectRatio: 2,
+          maintainAspectRatio: false,
           plugins: {
               legend: {
                   display: false,
@@ -270,7 +431,8 @@ Chart.defaults.font.weight = '800';
       }
     
   );
+  new Chart(
+    document.getElementById('marchfreetime'),
+    config
+  );
 })();
-   
-  
-   

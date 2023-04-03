@@ -155,8 +155,8 @@ html body #time_scale .task-holder .task .details p {
 }
 html body #statsholder {
   display: flex;
-  gap: 10vw;
-  justify-content: center;
+  gap: 8vw;
+  justify-content: space-between;
   overflow: scroll;
   overflow-y: hidden;
   margin: 0 auto;
@@ -178,4 +178,14 @@ html body #statsholder .statsblock {
   padding: 1.5vw 3vw;
   background-color: #5A5A5A;
   font-size: 0.8vw;
+}
+html body #statsholder .statsblock .averagefreetimetitle {
+  font-size: 1.4vw;
+  text-align: center;
+  margin-top: 1vw;
+}
+html body #statsholder .statsblock .freetimeholder {
+  margin-top: 0.5vw;
+  margin-bottom: 1.2vw;
+  font-size: 2.5vw;
 }/*# sourceMappingURL=style.css.map */
