@@ -26,8 +26,8 @@ Chart.defaults.font.weight = '800';
         label: 'Tasks',
         data: [300, 50],
         backgroundColor: [
-          'red',
-          'blue',
+          '#E30606',
+          '#07B7DE',
           
         ],
         hoverOffset: 4,
@@ -170,8 +170,8 @@ Chart.defaults.font.weight = '800';
       label: 'Tasks',
       data: [300, 50],
       backgroundColor: [
-        'red',
-        'blue',
+        '#E30606',
+          '#07B7DE',
         
       ],
       hoverOffset: 4,
@@ -314,8 +314,8 @@ Chart.defaults.font.weight = '800';
       label: 'Tasks',
       data: [300, 50],
       backgroundColor: [
-        'red',
-        'blue',
+        '#E30606',
+          '#07B7DE',
         
       ],
       hoverOffset: 4,

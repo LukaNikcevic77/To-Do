@@ -187,18 +187,25 @@ html {
             display: flex;
             gap: 8vw;
             justify-content: space-between;
-            overflow: scroll;
-            overflow-y: hidden;
+            overflow: hidden;
             margin: 0 auto;
-            
+            margin-top: 3vw;
             width: 90vw;
             height: auto;
-            background-color: #FF0202;
+            
 
             .month {
                 height: auto;
                 padding: 2.5vw;
                 width: auto;
+                color: #C4C3C9;
+                font-family: 'Inter', sans-serif;
+                font-weight: bold;
+                
+                .monthname {
+                    font-size: 1.3vw;
+                    margin-bottom: 0.5vw;
+                }
             }
 
 
@@ -209,22 +216,29 @@ html {
                 height: 30vw;
                 width: auto;
                 padding: 1.5vw 3vw;
-                
-                background-color: #5A5A5A;
+                color: #FFFF;
+                background-color: #525254;
                 font-size: 0.8vw;
-
+                border-radius: 0.6vw;
                 .averagefreetimetitle {
-                    font-size: 1.4vw;
+                    font-size: 1.3vw;
                     text-align: center;
-                    margin-top: 1vw;
+                    margin-top: 1.3vw;
+                    color: #F3F1F9;
                 }
                 .freetimeholder{
-                    margin-top: 0.5vw;
-                    margin-bottom: 1.2vw;
-                    font-size: 2.5vw;
+                    margin-top: 0.2vw;
+                    margin-bottom: 2vw;
+                    font-size: 3vw;
+                    color: #FFFFFF;
                 }
 
             }
+        }
+
+        
+        .hidden {
+            display: none !important;
         }
     }
 }

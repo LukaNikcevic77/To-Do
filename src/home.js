@@ -3,9 +3,34 @@ export {HomePageUI};
 let HomePageUI = {
 
     averageFreeTime: document.querySelectorAll('.freetimeholder'),
-    
+    statsButton: document.getElementById('stats'),
+    homeButton: document.getElementById('home'),
+    calendarManager: document.getElementById('calendar_managment'),
+    statsManager: document.getElementById('statsholder'),
+    timeScaleManager: document.getElementById('time_scale'),
+    taskMakingButtonHolder: document.getElementById('task_maker'),
     elements: [],
     
+    addFunction(){
+        
+      
+      
+      this.statsButton.addEventListener('click', (e) => {
+            this.calendarManager.classList.add("hidden");
+            this.timeScaleManager.classList.add("hidden");
+            this.statsManager.classList.remove("hidden");
+            this.taskMakingButtonHolder.classList.add("hidden");
+      }),
+      this.homeButton.addEventListener('click', (e) => {
+       
+        this.statsManager.classList.add("hidden");
+        this.calendarManager.classList.remove("hidden");
+        this.timeScaleManager.classList.remove("hidden");
+        this.taskMakingButtonHolder.classList.remove("hidden");
+  })
+
+
+    },
     makeElements(dates, tasks) {
       
       

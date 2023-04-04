@@ -6,6 +6,6 @@ const datemanaging = document.getElementById('calendar_managment');
 const taskmanagment = document.getElementById('time_scale');
 
 
-
-
+HomePageUI.makeElements(datemanaging, taskmanagment);
+HomePageUI.addFunction();
 console.log(HomePageUI.averageFreeTime[0].innerText);
