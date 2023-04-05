@@ -1,5 +1,5 @@
 import { Chart, scales } from "chart.js/auto";
-import { HomePageUI } from "./home";
+export {StatsUI};
 
 
 
@@ -436,3 +436,24 @@ Chart.defaults.font.weight = '800';
     config
   );
 })();
+
+let StatsUI = {
+    statsButton: document.getElementById('stats'),
+    calendarManager: document.getElementById('calendar_managment'),
+    statsManager: document.getElementById('statsholder'),
+    timeScaleManager: document.getElementById('time_scale'),
+    taskMakingButtonHolder: document.getElementById('task_maker'),
+
+  addListeners(){
+
+      this.statsButton.addEventListener('click', (e) => {
+      this.calendarManager.classList.add("hidden");
+      this.timeScaleManager.classList.add("hidden");
+      this.statsManager.classList.remove("hidden");
+      this.taskMakingButtonHolder.classList.add("hidden");
+      })
+  }
+
+}
+
+StatsUI.addListeners();

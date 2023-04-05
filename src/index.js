@@ -7,5 +7,5 @@ const taskmanagment = document.getElementById('time_scale');
 
 
 HomePageUI.makeElements(datemanaging, taskmanagment);
-HomePageUI.addFunction();
+HomePageUI.addListeners();
 console.log(HomePageUI.averageFreeTime[0].innerText);

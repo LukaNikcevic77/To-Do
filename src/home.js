@@ -11,24 +11,82 @@ let HomePageUI = {
     taskMakingButtonHolder: document.getElementById('task_maker'),
     elements: [],
     
-    addFunction(){
+    addListeners(){
         
       
       
-      this.statsButton.addEventListener('click', (e) => {
-            this.calendarManager.classList.add("hidden");
-            this.timeScaleManager.classList.add("hidden");
-            this.statsManager.classList.remove("hidden");
-            this.taskMakingButtonHolder.classList.add("hidden");
-      }),
+      
       this.homeButton.addEventListener('click', (e) => {
        
         this.statsManager.classList.add("hidden");
         this.calendarManager.classList.remove("hidden");
         this.timeScaleManager.classList.remove("hidden");
         this.taskMakingButtonHolder.classList.remove("hidden");
-  })
+      })
 
+
+    },
+    scrollingListeners(ourholder){
+
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        let excolor = ourholder.style.backgroundColor;
+        
+        ourholder.addEventListener( 'mousedown', (e) => {
+          
+          isDown = true;
+          startX = e.pageX;
+          scrollLeft = ourholder.scrollLeft;
+          
+
+        }),
+        ourholder.addEventListener('mouseleave', (e) => {
+          
+          isDown = false;
+          ourholder.style.left = 0 + "px";
+          ourholder.style.backgroundColor = excolor;
+
+        }),
+        ourholder.addEventListener('mouseup', (e) => {
+          
+          isDown = false;
+          let currentPosition = ourholder.style.left.toString().match(/-?\d+/);
+          if(currentPosition[0] > 100 || currentPosition[0] < -100){
+            
+            ourholder.classList.add("fadeAwayAnim");
+            setTimeout(() => {
+              ourholder.remove();
+            }, 2000);
+          }
+          
+          else {
+            ourholder.style.left = 0 + "px";
+          }
+
+        }),
+        ourholder.addEventListener('mousemove', (e) => {
+                
+                if(!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - ourholder.offsetLeft;
+                
+                const walk = - (x - startX) / 5;
+                console.log(ourholder);
+                console.log(ourholder.style);
+                ourholder.style.position = "relative";
+                ourholder.style.left = scrollLeft - walk + "px";
+
+                if(scrollLeft - walk > 100){
+                  ourholder.style.backgroundColor = 'rgba(255, 160, 58, 0.41)'
+                }
+                else if(scrollLeft - walk < -100){
+                      ourholder.style.backgroundColor = 'rgba(102, 255, 71, 0.41)'
+                }
+                else {
+                        ourholder.style.backgroundColor = excolor;
+                }
+        })
 
     },
     makeElements(dates, tasks) {
@@ -99,6 +157,8 @@ let HomePageUI = {
                 const task = document.createElement('div');
                 task.classList.add("task");
                 taskholder.appendChild(task);
+                //Put listener here
+                HomePageUI.scrollingListeners(task);
 
                 const mark = document.createElement('div');
                 mark.classList.add('mark');
@@ -136,6 +196,8 @@ let HomePageUI = {
               const task = document.createElement('div');
               task.classList.add("task");
               taskholder.appendChild(task);
+              //Add func here
+              HomePageUI.scrollingListeners(task);
 
               const mark = document.createElement('div');
               mark.classList.add('mark');

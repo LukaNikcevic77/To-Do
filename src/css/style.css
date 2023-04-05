@@ -201,4 +201,16 @@ html body #statsholder .statsblock .freetimeholder {
 }
 html body .hidden {
   display: none !important;
+}
+html body .fadeAwayAnim {
+  animation: fadeAway 2s forwards;
+}
+
+@keyframes fadeAway {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }/*# sourceMappingURL=style.css.map */
