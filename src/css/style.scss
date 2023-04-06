@@ -42,21 +42,72 @@ html {
             }
 
             .task-creator {
+                font-family: 'Inter', sans-serif;
+                    font-weight: 800;
+                    font-size: 1.5vw;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 2vw;
+                overflow: hidden;
                 width: 15vw;
-                height: 4vw;
+                height: 2vw;
                 position: absolute;
                 left: 0;
                 top: 8vw;
                 background-color: $gray-dark;
                 text-align: right;
                 border-radius: 0px 0px 20px 0px;
+                padding-top: 3vw;
                 h1 {
                     font-family: 'Inter', sans-serif;
                     font-weight: 800;
                     font-size: 2vw;
                     width: 15vw;
-                    margin-top: 0.6vw;
-                    margin-left: -3vw;
+                   margin-top: -2vw;
+                   margin-bottom: 3vw;
+                    margin-left: 28.5vw;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                    
+                }
+                label {
+                    margin-top: -2vw;
+                    margin-bottom: -1vw;
+                }
+
+                input, button {
+                    font-family: 'Inter', sans-serif;
+                    font-size: 1.5vw;
+                    font-weight: bold;
+                    margin-bottom: 2vw;
+                    height: 3vw;
+                    width: 9vw;
+                    text-align: center;
+                    border-radius: 1vw;
+                    border: none;
+                    color: white;
+                    background-color: $gray-light;
+
+                    &:focus {
+                        outline: none;
+                    }
+                    
+                }
+
+                #submit {
+                    margin-top: -2vw;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+                #collapse {
+                    margin-top: -3vw;
+                    &:hover {
+                        cursor: pointer;
+                    }
                 }
             }
         }

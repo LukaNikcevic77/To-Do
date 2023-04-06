@@ -23,15 +23,28 @@
         <p>Teams</p>
         <p id="stats">Stats</p>
         <div id="task_maker" class="task-creator">
-            <h1>Add task</h1>
+            <h1 id="addtasktext">Add task</h1>
+            <label for="clock-time-input">Tasks starts at:</label>
+            <input type="time" id="clock-time-input" name="clock-time-input" step="3600">
+            <label for="clock-time-input">Tasks ends at:</label>
+            <input type="time" id="clock-time-input" name="clock-time-input" step="3600">
+            <label for="name-of-task">Name of task:</label>
+            <input type="text" value="Hello world!" id="name-of-task"  name="name-of-task" placeholder="Give task a name">
+            <label for="name-of-detail1">Detail 1:</label>
+            <input type="text" value="Hello world!" id="name-of-detail1"  name="name-of-detail1" placeholder="Give your 1st important detail about task">
+            <label for="name-of-detail1">Detail 2:</label>
+            <input type="text" value="Hello world!" id="name-of-detail2"  name="name-of-detail2" placeholder="Give your 2nd important detail about task">
+            <button type="submit" style="background-color: rgb(74, 160, 74);" id="submit">Submit</button>
+            <button type="submit" style="background-color: rgb(160, 74, 74);" id="collapse">Collapse</button>
+
         </div>
     </header>
-    <span id="calendar_managment" class="hidden">
+    <span id="calendar_managment" class="">
     </span>
-    <div id="time_scale" class="hidden">
+    <div id="time_scale" class="">
     </div>
 
-    <div id="statsholder">
+    <div id="statsholder" class="hidden">
         <span class="month n1">
             <h1 class="monthname">January</h1>
             <div class="statsblock">

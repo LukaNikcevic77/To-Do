@@ -9,11 +9,38 @@ let HomePageUI = {
     statsManager: document.getElementById('statsholder'),
     timeScaleManager: document.getElementById('time_scale'),
     taskMakingButtonHolder: document.getElementById('task_maker'),
+    addTaskButton: document.getElementById('addtasktext'),
+
+    submitTaskAdder: document.getElementById('submit'),
+    collapseTaskAdder: document.getElementById('collapse'),
+
+
+    
     elements: [],
     
     addListeners(){
+
+      this.collapseTaskAdder.addEventListener('click', (e) => {
+        this.addTaskButton.parentNode.style.height = '2vw';
+        this.addTaskButton.classList.remove("hidden");
         
-      
+        
+
+      })
+
+        
+      this.addTaskButton.addEventListener('click', (e) => {
+
+        
+        this.addTaskButton.parentNode.style.height = 'auto';
+        this.addTaskButton.classList.add("hidden");
+          
+
+          
+        
+      })
+
+
       
       
       this.homeButton.addEventListener('click', (e) => {
@@ -25,6 +52,10 @@ let HomePageUI = {
       })
 
 
+    },
+
+    removeEventListenersFunction(prop, b) {
+        prop.removeEventListener('click', (e) => b);
     },
     scrollingListeners(ourholder){
 
