@@ -10,10 +10,10 @@ let HomePageUI = {
     timeScaleManager: document.getElementById('time_scale'),
     taskMakingButtonHolder: document.getElementById('task_maker'),
     addTaskButton: document.getElementById('addtasktext'),
-
+    
     submitTaskAdder: document.getElementById('submit'),
     collapseTaskAdder: document.getElementById('collapse'),
-
+    
 
     
     elements: [],
@@ -24,8 +24,6 @@ let HomePageUI = {
         this.addTaskButton.parentNode.style.height = '2vw';
         this.addTaskButton.classList.remove("hidden");
         
-        
-
       })
 
         
@@ -35,13 +33,15 @@ let HomePageUI = {
         this.addTaskButton.parentNode.style.height = 'auto';
         this.addTaskButton.classList.add("hidden");
           
-
-          
         
       })
 
 
-      
+      this.submitTaskAdder.addEventListener('click', (e) => {
+
+          this.validateInput(document.getElementById('clock-time-start').value, document.getElementById('clock-time-end').value, 
+          document.getElementById('name-of-task').value, document.getElementById('name-of-detail1').value, document.getElementById('name-of-detail2').value)
+      })
       
       this.homeButton.addEventListener('click', (e) => {
        
@@ -54,9 +54,77 @@ let HomePageUI = {
 
     },
 
-    removeEventListenersFunction(prop, b) {
-        prop.removeEventListener('click', (e) => b);
+    validateInput(TimeStart, TimeEnd, TaskName, TaskDetail1, TaskDetail2){
+      
+      let beginningTime = this.convertTo24Hour(TimeStart).match(/\d+/);
+      let endingTime = this.convertTo24Hour(TimeEnd).match(/\d+/);
+      let taskHolders = document.querySelectorAll('.task-holder');
+      console.log("OVo je beginning time: " + beginningTime);
+      console.log(taskHolders[beginningTime]);
+      if(endingTime - beginningTime < 1) {
+        console.log("Hej ovo je rez: " + (endingTime - beginningTime));
+        return
+      }
+      
+      else if(taskHolders[beginningTime].hasChildNodes()){
+            return;
+      }
+      else {
+        console.log("Hej ovo je rez i pusiace se!: " + (endingTime - beginningTime));
+        this.appendTask(beginningTime, endingTime, TaskName, TaskDetail1, TaskDetail2, taskHolders[beginningTime])
+      }
+
     },
+
+    appendTask(TimeStart, TimeEnd, TaskName, TaskDetail1, TaskDetail2, placetoput){
+
+        const task = document.createElement('div');
+        task.classList.add('task');
+        placetoput.appendChild(task);
+
+        const mark = document.createElement('div');
+        mark.classList.add('mark');
+        task.appendChild(mark);
+
+        const details = document.createElement('span');
+        details.classList.add('details');
+        task.appendChild(details);
+        HomePageUI.scrollingListeners(task);
+
+        const taskName = document.createElement('h1');
+        taskName.classList.add('taskName');
+        taskName.textContent = TaskName;
+        details.appendChild(taskName);
+
+        const detail1 = document.createElement('p');
+        detail1.classList.add('detail1');
+        detail1.textContent = TaskDetail1;
+        details.appendChild(detail1);
+
+        const detail2 = document.createElement('p');
+        detail2.classList.add('detail1');
+        detail2.textContent = TaskDetail2;
+        details.appendChild(detail2);
+
+    },
+
+     convertTo24Hour(timeString) {
+      
+      var timeTokens = timeString.split(":");
+      var hours = parseInt(timeTokens[0]);
+      var minutes = parseInt(timeTokens[1].substr(0,2));
+      var meridian = timeTokens[1].substr(2,2).toUpperCase();
+      
+      if (meridian === "PM" && hours < 12) {
+        hours += 12;
+      }
+      else if (meridian === "AM" && hours === 12) {
+        hours = 0;
+      }
+      
+      return (hours < 10 ? "0" : "") + hours + ":" + (minutes < 10 ? "0" : "") + minutes;
+    },
+    
     scrollingListeners(ourholder){
 
         let isDown = false;
@@ -185,31 +253,7 @@ let HomePageUI = {
                 taskholder.classList.add("task-holder");
                 tasks.appendChild(taskholder);
 
-                const task = document.createElement('div');
-                task.classList.add("task");
-                taskholder.appendChild(task);
-                //Put listener here
-                HomePageUI.scrollingListeners(task);
-
-                const mark = document.createElement('div');
-                mark.classList.add('mark');
-                task.appendChild(mark);
-
-                const details = document.createElement('span');
-                details.classList.add('details');
-                task.appendChild(details);
-
-                const taskName = document.createElement('h1');
-                taskName.classList.add('taskName');
-                details.appendChild(taskName);
-
-                const detail1 = document.createElement('p');
-                detail1.classList.add('detail1');
-                details.appendChild(detail1);
-
-                const detail2 = document.createElement('p');
-                detail2.classList.add('detail2');
-                details.appendChild(detail2);
+                
 
             }
             else {
@@ -223,32 +267,6 @@ let HomePageUI = {
               const taskholder = document.createElement('div');
               taskholder.classList.add("task-holder");
               tasks.appendChild(taskholder);
-
-              const task = document.createElement('div');
-              task.classList.add("task");
-              taskholder.appendChild(task);
-              //Add func here
-              HomePageUI.scrollingListeners(task);
-
-              const mark = document.createElement('div');
-              mark.classList.add('mark');
-              task.appendChild(mark);
-
-              const details = document.createElement('span');
-              details.classList.add('details');
-              task.appendChild(details);
-
-              const taskName = document.createElement('h1');
-              taskName.classList.add('taskName');
-              details.appendChild(taskName);
-
-              const detail1 = document.createElement('p');
-              detail1.classList.add('detail1');
-              details.appendChild(detail1);
-
-              const detail2 = document.createElement('p');
-              detail2.classList.add('detail2');
-              details.appendChild(detail2);
 
             }
         }
