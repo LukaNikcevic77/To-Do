@@ -39,7 +39,7 @@ let HomePageUI = {
 
       this.submitTaskAdder.addEventListener('click', (e) => {
 
-          this.validateInput(document.getElementById('clock-time-start').value, document.getElementById('clock-time-end').value, 
+          ServiceProvider.validateInput(document.getElementById('clock-time-start').value, document.getElementById('clock-time-end').value, 
           document.getElementById('name-of-task').value, document.getElementById('name-of-detail1').value, document.getElementById('name-of-detail2').value)
       })
       
@@ -54,27 +54,7 @@ let HomePageUI = {
 
     },
 
-    validateInput(TimeStart, TimeEnd, TaskName, TaskDetail1, TaskDetail2){
-      
-      let beginningTime = this.convertTo24Hour(TimeStart).match(/\d+/);
-      let endingTime = this.convertTo24Hour(TimeEnd).match(/\d+/);
-      let taskHolders = document.querySelectorAll('.task-holder');
-      console.log("OVo je beginning time: " + beginningTime);
-      console.log(taskHolders[beginningTime]);
-      if(endingTime - beginningTime < 1) {
-        console.log("Hej ovo je rez: " + (endingTime - beginningTime));
-        return
-      }
-      
-      else if(taskHolders[beginningTime].hasChildNodes()){
-            return;
-      }
-      else {
-        console.log("Hej ovo je rez i pusiace se!: " + (endingTime - beginningTime));
-        this.appendTask(beginningTime, endingTime, TaskName, TaskDetail1, TaskDetail2, taskHolders[beginningTime])
-      }
-
-    },
+    
 
     appendTask(TimeStart, TimeEnd, TaskName, TaskDetail1, TaskDetail2, placetoput){
 
@@ -108,22 +88,7 @@ let HomePageUI = {
 
     },
 
-     convertTo24Hour(timeString) {
-      
-      var timeTokens = timeString.split(":");
-      var hours = parseInt(timeTokens[0]);
-      var minutes = parseInt(timeTokens[1].substr(0,2));
-      var meridian = timeTokens[1].substr(2,2).toUpperCase();
-      
-      if (meridian === "PM" && hours < 12) {
-        hours += 12;
-      }
-      else if (meridian === "AM" && hours === 12) {
-        hours = 0;
-      }
-      
-      return (hours < 10 ? "0" : "") + hours + ":" + (minutes < 10 ? "0" : "") + minutes;
-    },
+     
     
     scrollingListeners(ourholder){
 
@@ -272,9 +237,53 @@ let HomePageUI = {
         }
         
     
-    },
+    }
+  }
     
    
     
+
+
+let ServiceProvider = {
+
+  convertTo24Hour(timeString) {
+      
+    var timeTokens = timeString.split(":");
+    var hours = parseInt(timeTokens[0]);
+    var minutes = parseInt(timeTokens[1].substr(0,2));
+    var meridian = timeTokens[1].substr(2,2).toUpperCase();
+    
+    if (meridian === "PM" && hours < 12) {
+      hours += 12;
+    }
+    else if (meridian === "AM" && hours === 12) {
+      hours = 0;
+    }
+    
+    return (hours < 10 ? "0" : "") + hours + ":" + (minutes < 10 ? "0" : "") + minutes;
+  },
+
+  validateInput(TimeStart, TimeEnd, TaskName, TaskDetail1, TaskDetail2){
+      
+    let beginningTime = ServiceProvider.convertTo24Hour(TimeStart).match(/\d+/);
+    let endingTime = ServiceProvider.convertTo24Hour(TimeEnd).match(/\d+/);
+    let taskHolders = document.querySelectorAll('.task-holder');
+    console.log("OVo je beginning time: " + beginningTime);
+    console.log(taskHolders[beginningTime]);
+    if(endingTime - beginningTime < 1) {
+      console.log("Hej ovo je rez: " + (endingTime - beginningTime));
+      return
+    }
+    
+    else if(taskHolders[beginningTime].hasChildNodes()){
+          return;
+    }
+    else {
+      console.log("Hej ovo je rez i pusiace se!: " + (endingTime - beginningTime));
+      HomePageUI.appendTask(beginningTime, endingTime, TaskName, TaskDetail1, TaskDetail2, taskHolders[beginningTime])
+    }
+
+  },
+
 }
 
