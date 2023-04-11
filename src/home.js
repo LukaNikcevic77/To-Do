@@ -69,7 +69,7 @@ let HomePageUI = {
         const details = document.createElement('span');
         details.classList.add('details');
         task.appendChild(details);
-        HomePageUI.scrollingListeners(task);
+        HomePageUI.scrollingListeners(task, TimeStart, TimeEnd);
 
         const taskName = document.createElement('h1');
         taskName.classList.add('taskName');
@@ -89,10 +89,10 @@ let HomePageUI = {
         if(i != TimeEnd){
           
           placetoput[TimeStart].style.paddingBottom = '0px';
-          placetoput[TimeStart].setAttribute("data-connected", "yes");
+          
           while (i < TimeEnd){
 
-            console.log(i);
+           /* console.log(i);
             const task = document.createElement('div');
             task.classList.add('task');
             placetoput[i].appendChild(task);
@@ -107,6 +107,10 @@ let HomePageUI = {
 
             timetoremove[i].textContent = '';
 
+            */
+            placetoput[i].classList.add('hidden');
+            timetoremove[i].textContent = '';
+
 
             i++;
           }
@@ -118,12 +122,14 @@ let HomePageUI = {
 
      
     
-    scrollingListeners(ourholder){
+    scrollingListeners(ourholder, timeToStart, timeToEnd){
 
         let isDown = false;
         let startX;
         let scrollLeft;
         let excolor = ourholder.style.backgroundColor;
+        let taskHostlers = document.querySelectorAll('.task-holder');
+        let timeHostlers = document.querySelectorAll('.time');
         
         ourholder.addEventListener( 'mousedown', (e) => {
           
@@ -149,6 +155,17 @@ let HomePageUI = {
             ourholder.classList.add("fadeAwayAnim");
             setTimeout(() => {
               ourholder.remove();
+              let i = timeToStart;
+               console.log(i);
+              let b = timeToEnd;
+              console.log(b);
+              
+              while (i < b) {
+                    
+                    taskHostlers[i].classList.remove('hidden');
+                    timeHostlers[i].textContent = timeHostlers[i].dataset.clock;
+                    i++;
+              }
             }, 2000);
           }
           
