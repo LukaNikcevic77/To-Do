@@ -56,11 +56,11 @@ let HomePageUI = {
 
     
 
-    appendTask(TimeStart, TimeEnd, TaskName, TaskDetail1, TaskDetail2, placetoput){
+    appendTask(TimeStart, TimeEnd, TaskName, TaskDetail1, TaskDetail2, placetoput,timetoremove){
 
         const task = document.createElement('div');
         task.classList.add('task');
-        placetoput.appendChild(task);
+        placetoput[TimeStart].appendChild(task);
 
         const mark = document.createElement('div');
         mark.classList.add('mark');
@@ -85,6 +85,34 @@ let HomePageUI = {
         detail2.classList.add('detail1');
         detail2.textContent = TaskDetail2;
         details.appendChild(detail2);
+        let i = TimeStart + 1;
+        if(i != TimeEnd){
+          
+          placetoput[TimeStart].style.paddingBottom = '0px';
+          placetoput[TimeStart].setAttribute("data-connected", "yes");
+          while (i < TimeEnd){
+
+            console.log(i);
+            const task = document.createElement('div');
+            task.classList.add('task');
+            placetoput[i].appendChild(task);
+            task.setAttribute("data-connected", "yes");
+
+            placetoput[i].style.border = 'none';
+            placetoput[i].style.padding = '0px';
+    
+            const mark = document.createElement('div');
+            mark.classList.add('mark');
+            task.appendChild(mark);
+
+            timetoremove[i].textContent = '';
+
+
+            i++;
+          }
+
+        }
+        
 
     },
 
@@ -268,6 +296,7 @@ let ServiceProvider = {
     let beginningTime = ServiceProvider.convertTo24Hour(TimeStart).match(/\d+/);
     let endingTime = ServiceProvider.convertTo24Hour(TimeEnd).match(/\d+/);
     let taskHolders = document.querySelectorAll('.task-holder');
+    let timeHolders = document.querySelectorAll('.time');
     console.log("OVo je beginning time: " + beginningTime);
     console.log(taskHolders[beginningTime]);
     if(endingTime - beginningTime < 1) {
@@ -280,7 +309,7 @@ let ServiceProvider = {
     }
     else {
       console.log("Hej ovo je rez i pusiace se!: " + (endingTime - beginningTime));
-      HomePageUI.appendTask(beginningTime, endingTime, TaskName, TaskDetail1, TaskDetail2, taskHolders[beginningTime])
+      HomePageUI.appendTask(Number(beginningTime), Number(endingTime), TaskName, TaskDetail1, TaskDetail2, taskHolders, timeHolders)
     }
 
   },
