@@ -2,6 +2,9 @@ export {HomePageUI};
 
 let HomePageUI = {
 
+    monthsArray: ["January", "February", "March", "April", "May", "Jun", "July", "August", "September", "October", "November", "December"],
+
+
     averageFreeTime: document.querySelectorAll('.freetimeholder'),
     statsButton: document.getElementById('stats'),
     homeButton: document.getElementById('home'),
@@ -50,6 +53,19 @@ let HomePageUI = {
         this.timeScaleManager.classList.remove("hidden");
         this.taskMakingButtonHolder.classList.remove("hidden");
       })
+
+      document.getElementById('prevday').addEventListener('click', (e) => {
+        if(Number(document.getElementById('Day').textContent) - 1 != 0 ) {
+          document.getElementById('Day').textContent = Number(document.getElementById('Day').textContent) - 1;
+        }
+        else {
+          determinDays(document.getElementById('Month').textContent);
+        }
+        
+      });
+      document.getElementById('nextday').addEventListener('click', (e) => {});
+      document.getElementById('prevmonth').addEventListener('click', (e) => {});
+      document.getElementById('nextmonth').addEventListener('click', (e) => {});
 
 
     },
@@ -204,6 +220,7 @@ let HomePageUI = {
         
       const monthHolder = document.createElement('span');
       monthHolder.classList.add("monthholder");
+      
       dates.appendChild(monthHolder);
 
         const monthleftarrow = document.createElement('i');
@@ -215,6 +232,7 @@ let HomePageUI = {
         const MonthName = document.createElement("h1");
         MonthName.setAttribute("id", "Month");
         MonthName.textContent = "MON";
+        MonthName.setAttribute("data-mm", MonthName.textContent);
         monthHolder.appendChild(MonthName);
 
         const monthrightarrow = document.createElement('i');
@@ -239,6 +257,7 @@ let HomePageUI = {
         const Date = document.createElement("p");
         Date.setAttribute("id", "Day");
         Date.textContent = "15";
+        Date.setAttribute("data-dd", Date.textContent);
         dayholder.appendChild(Date);
 
         const dayrightarrow = document.createElement('i');
@@ -330,6 +349,13 @@ let ServiceProvider = {
     }
 
   },
-
+  determinDays(Month){
+    if(monthsArray.indexOf(Month) / 2 == 0){
+      return 30;
+    }
+    else {
+      return 31;
+    }
+  }
 }
 
