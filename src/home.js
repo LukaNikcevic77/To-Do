@@ -2,7 +2,7 @@ export {HomePageUI};
 
 let HomePageUI = {
 
-    monthsArray: ["January", "February", "March", "April", "May", "Jun", "July", "August", "September", "October", "November", "December"],
+    monthsArray: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
 
 
     averageFreeTime: document.querySelectorAll('.freetimeholder'),
@@ -57,15 +57,45 @@ let HomePageUI = {
       document.getElementById('prevday').addEventListener('click', (e) => {
         if(Number(document.getElementById('Day').textContent) - 1 != 0 ) {
           document.getElementById('Day').textContent = Number(document.getElementById('Day').textContent) - 1;
+          console.log("MEEE");
         }
         else {
-          determinDays(document.getElementById('Month').textContent);
+          document.getElementById('Day').textContent = ServiceProvider.determinDays(document.getElementById('Month').textContent);
         }
         
       });
-      document.getElementById('nextday').addEventListener('click', (e) => {});
-      document.getElementById('prevmonth').addEventListener('click', (e) => {});
-      document.getElementById('nextmonth').addEventListener('click', (e) => {});
+      document.getElementById('nextday').addEventListener('click', (e) => {
+        if(Number(document.getElementById('Day').textContent) != ServiceProvider.determinDays(document.getElementById('Month').textContent)) {
+          document.getElementById('Day').textContent = Number(document.getElementById('Day').textContent) + 1;
+          console.log("MEEE");
+        }
+        else {
+          document.getElementById('Day').textContent = '1';
+        }
+      });
+      document.getElementById('prevmonth').addEventListener('click', (e) => {
+        if(this.monthsArray.indexOf(document.getElementById('Month').textContent) != 0) {
+          document.getElementById('Month').textContent = this.monthsArray[this.monthsArray.indexOf(document.getElementById('Month').textContent) - 1];
+          document.getElementById('Day').textContent = '1';
+          console.log("MEEEG");
+        }
+        else {
+          document.getElementById('Month').textContent = this.monthsArray[11];
+          document.getElementById('Day').textContent = '1';
+        }
+      });
+      document.getElementById('nextmonth').addEventListener('click', (e) => {
+        if(this.monthsArray.indexOf(document.getElementById('Month').textContent) != 11) {
+          document.getElementById('Month').textContent = this.monthsArray[this.monthsArray.indexOf(document.getElementById('Month').textContent) + 1];
+          document.getElementById('Day').textContent = '1';
+
+          console.log("MEEEG");
+        }
+        else {
+          document.getElementById('Month').textContent = this.monthsArray[0];
+          document.getElementById('Day').textContent = '1';
+        }
+      });
 
 
     },
@@ -231,7 +261,7 @@ let HomePageUI = {
 
         const MonthName = document.createElement("h1");
         MonthName.setAttribute("id", "Month");
-        MonthName.textContent = "MON";
+        MonthName.textContent = "JAN";
         MonthName.setAttribute("data-mm", MonthName.textContent);
         monthHolder.appendChild(MonthName);
 
@@ -350,7 +380,11 @@ let ServiceProvider = {
 
   },
   determinDays(Month){
-    if(monthsArray.indexOf(Month) / 2 == 0){
+    if(HomePageUI.monthsArray.indexOf(Month) % 2 != 0){
+      console.log(HomePageUI.monthsArray.indexOf(Month) / 2);
+      if(Month == 'FEB'){
+        return 28;
+      }
       return 30;
     }
     else {
