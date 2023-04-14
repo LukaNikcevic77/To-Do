@@ -3,7 +3,22 @@ export {HomePageUI};
 let HomePageUI = {
 
     monthsArray: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
+    tasksObject: {
+      JAN: {
 
+      },
+      FEB: {},
+      MAR: {},
+      APR: {},
+      MAY: {},
+      JUN: {},
+      JUL: {},
+      AUG: {},
+      SEP: {},
+      OCT: {},
+      NOV: {},
+      DEC: {}
+    },
 
     averageFreeTime: document.querySelectorAll('.freetimeholder'),
     statsButton: document.getElementById('stats'),
@@ -43,7 +58,8 @@ let HomePageUI = {
       this.submitTaskAdder.addEventListener('click', (e) => {
 
           ServiceProvider.validateInput(document.getElementById('clock-time-start').value, document.getElementById('clock-time-end').value, 
-          document.getElementById('name-of-task').value, document.getElementById('name-of-detail1').value, document.getElementById('name-of-detail2').value)
+          document.getElementById('name-of-task').value, document.getElementById('name-of-detail1').value, document.getElementById('name-of-detail2').value, 
+          document.getElementById('Month').textContent, document.getElementById('Day').textContent)
       })
       
       this.homeButton.addEventListener('click', (e) => {
@@ -102,7 +118,7 @@ let HomePageUI = {
 
     
 
-    appendTask(TimeStart, TimeEnd, TaskName, TaskDetail1, TaskDetail2, placetoput,timetoremove){
+    appendTask(TimeStart, TimeEnd, TaskName, TaskDetail1, TaskDetail2, placetoput,timetoremove, Month, Date){
 
         const task = document.createElement('div');
         task.classList.add('task');
@@ -162,7 +178,7 @@ let HomePageUI = {
           }
 
         }
-        
+        ServiceProvider.addToLocalObject(Month, Date, TaskName, TimeStart, TimeEnd, task.outerHTML);
 
     },
 
@@ -357,7 +373,7 @@ let ServiceProvider = {
     return (hours < 10 ? "0" : "") + hours + ":" + (minutes < 10 ? "0" : "") + minutes;
   },
 
-  validateInput(TimeStart, TimeEnd, TaskName, TaskDetail1, TaskDetail2){
+  validateInput(TimeStart, TimeEnd, TaskName, TaskDetail1, TaskDetail2, Month, Date){
       
     let beginningTime = ServiceProvider.convertTo24Hour(TimeStart).match(/\d+/);
     let endingTime = ServiceProvider.convertTo24Hour(TimeEnd).match(/\d+/);
@@ -375,7 +391,7 @@ let ServiceProvider = {
     }
     else {
       console.log("Hej ovo je rez i pusiace se!: " + (endingTime - beginningTime));
-      HomePageUI.appendTask(Number(beginningTime), Number(endingTime), TaskName, TaskDetail1, TaskDetail2, taskHolders, timeHolders)
+      HomePageUI.appendTask(Number(beginningTime), Number(endingTime), TaskName, TaskDetail1, TaskDetail2, taskHolders, timeHolders, Month, Date)
     }
 
   },
@@ -390,6 +406,26 @@ let ServiceProvider = {
     else {
       return 31;
     }
+  },
+  updateStorage(a){
+        localStorage.setItem("tasks", JSON.stringify(a));
+        console.log(localStorage);
+  },
+  updateLocalObject(a){
+    HomePageUI.tasksObject = JSON.parse(a);
+  },
+  addToLocalObject(a, b, c, d, e, f){
+    c = 
+    {
+      startTime: d,
+      endTime: e,
+      taskitself: f,
+    },
+    HomePageUI.tasksObject[a][b] = [c],
+    
+    this.updateStorage(HomePageUI.tasksObject);
+    
+    
   }
 }
 
