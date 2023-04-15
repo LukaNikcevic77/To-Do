@@ -56,7 +56,7 @@ let HomePageUI = {
 
 
       this.submitTaskAdder.addEventListener('click', (e) => {
-
+          
           ServiceProvider.validateInput(document.getElementById('clock-time-start').value, document.getElementById('clock-time-end').value, 
           document.getElementById('name-of-task').value, document.getElementById('name-of-detail1').value, document.getElementById('name-of-detail2').value, 
           document.getElementById('Month').textContent, document.getElementById('Day').textContent)
@@ -148,8 +148,18 @@ let HomePageUI = {
         detail2.textContent = TaskDetail2;
         details.appendChild(detail2);
         let i = TimeStart + 1;
-        if(i != TimeEnd){
-          
+        if(TimeEnd - i == 1){
+          console.log("Prvi if se desio");
+          console.log(i);
+          placetoput[TimeStart].style.paddingBottom = '0px';
+          placetoput[i].classList.add('hidden');
+          timetoremove[i].textContent = '';
+          timetoremove[i].classList.add('hidden');
+
+
+        }
+        else if(i != TimeEnd){
+          console.log("Drugi if se desio")
           placetoput[TimeStart].style.paddingBottom = '0px';
           
           while (i < TimeEnd){
@@ -172,7 +182,7 @@ let HomePageUI = {
             */
             placetoput[i].classList.add('hidden');
             timetoremove[i].textContent = '';
-
+            timetoremove[i].classList.add('hidden');
 
             i++;
           }
@@ -226,6 +236,7 @@ let HomePageUI = {
                     
                     taskHostlers[i].classList.remove('hidden');
                     timeHostlers[i].textContent = timeHostlers[i].dataset.clock;
+                    timeHostlers[i].classList.remove('hidden');
                     i++;
               }
             }, 2000);
@@ -375,22 +386,28 @@ let ServiceProvider = {
 
   validateInput(TimeStart, TimeEnd, TaskName, TaskDetail1, TaskDetail2, Month, Date){
       
-    let beginningTime = ServiceProvider.convertTo24Hour(TimeStart).match(/\d+/);
-    let endingTime = ServiceProvider.convertTo24Hour(TimeEnd).match(/\d+/);
+    
+
+    let beginningTime = ServiceProvider.convertTo24Hour(TimeStart).match(/(?<=0)\d+|^\d{2}/); 
+    let endingTime = ServiceProvider.convertTo24Hour(TimeEnd).match(/(?<=0)\d+|^\d{2}/);
     let taskHolders = document.querySelectorAll('.task-holder');
     let timeHolders = document.querySelectorAll('.time');
     console.log("OVo je beginning time: " + beginningTime);
-    console.log(taskHolders[beginningTime]);
+    console.log("Ovo je ending time " + endingTime);
+    console.log(taskHolders[2]);
+   
     if(endingTime - beginningTime < 1) {
       console.log("Hej ovo je rez: " + (endingTime - beginningTime));
       return
     }
     
-    else if(taskHolders[beginningTime].hasChildNodes()){
+    else if(taskHolders[beginningTime].hasChildNodes() || taskHolders[Number(beginningTime) + 1].classList.contains('hidden') || taskHolders[Number(endingTime) - 1].classList.contains('hidden')){
           return;
     }
+   
     else {
       console.log("Hej ovo je rez i pusiace se!: " + (endingTime - beginningTime));
+      console.log(timeHolders);
       HomePageUI.appendTask(Number(beginningTime), Number(endingTime), TaskName, TaskDetail1, TaskDetail2, taskHolders, timeHolders, Month, Date)
     }
 
