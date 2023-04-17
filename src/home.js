@@ -3,22 +3,22 @@ export {HomePageUI};
 let HomePageUI = {
 
     monthsArray: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
-    tasksObject: {
-      JAN: {
-
-      },
-      FEB: {},
-      MAR: {},
-      APR: {},
-      MAY: {},
-      JUN: {},
-      JUL: {},
-      AUG: {},
-      SEP: {},
-      OCT: {},
-      NOV: {},
-      DEC: {}
-    },
+    tasksArray: [ 
+    [
+      [ ]
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
 
     averageFreeTime: document.querySelectorAll('.freetimeholder'),
     statsButton: document.getElementById('stats'),
@@ -188,7 +188,15 @@ let HomePageUI = {
           }
 
         }
-        ServiceProvider.addToLocalObject(Month, Date, TaskName, TimeStart, TimeEnd, task.outerHTML);
+        ServiceProvider.addToScriptStorage(this.tasksArray, this.monthsArray,{
+          Month: Month,
+          Date: Number(Date),
+          starttime: TimeStart,
+          endtime: TimeEnd,
+          taskData: task.outerHTML
+        }, true);
+        
+        console.log(localStorage);
 
     },
 
@@ -227,6 +235,11 @@ let HomePageUI = {
             ourholder.classList.add("fadeAwayAnim");
             setTimeout(() => {
               ourholder.remove();
+              ServiceProvider.removeFromScriptStorage(this.tasksArray, this.monthsArray, {
+                Month: document.getElementById('Month').textContent,
+                Date: Number(document.getElementById('Day').textContent),
+                taskData: ourholder.outerHTML
+              })
               let i = timeToStart;
                console.log(i);
               let b = timeToEnd;
@@ -272,9 +285,13 @@ let HomePageUI = {
 
     },
     makeElements(dates, tasks) {
+      //console.log(this.monthsArray.indexOf("JAN"));
+      //console.log(this.tasksArray[this.monthsArray.indexOf("JAN")][0]);
+      //console.log(this.tasksArray[this.monthsArray.indexOf("JAN")][0][2].endtime);
       
       
-        
+      console.log(this.tasksArray);
+      
       const monthHolder = document.createElement('span');
       monthHolder.classList.add("monthholder");
       
@@ -313,7 +330,7 @@ let HomePageUI = {
 
         const Date = document.createElement("p");
         Date.setAttribute("id", "Day");
-        Date.textContent = "15";
+        Date.textContent = "1";
         Date.setAttribute("data-dd", Date.textContent);
         dayholder.appendChild(Date);
 
@@ -357,8 +374,10 @@ let HomePageUI = {
             }
         }
         
-    
+        ServiceProvider.updateScriptStorage(this.tasksArray, this.monthsArray, MonthName.textContent, Date.textContent, document.querySelectorAll('.task-holder'), true);
+        
     }
+    
   }
     
    
@@ -424,25 +443,58 @@ let ServiceProvider = {
       return 31;
     }
   },
-  updateStorage(a){
-        localStorage.setItem("tasks", JSON.stringify(a));
-        console.log(localStorage);
+  
+  updateLocalStorage (a){
+    let serailizedStorage = JSON.stringify(a);
+    localStorage.setItem("taskstorage", serailizedStorage);
+    
+    let unserialized = JSON.parse(localStorage.getItem("taskstorage"));
+    
   },
-  updateLocalObject(a){
-    HomePageUI.tasksObject = JSON.parse(a);
+  updateScriptStorage(a, b, Month, Date, taskHoldersList, bolan){
+    let unserialized = JSON.parse(localStorage.getItem("taskstorage"));
+    a = unserialized;
+    if(bolan) {
+      this.updateGridWithSavedData(a, b, Month, Date, taskHoldersList);
+    }
+    
   },
-  addToLocalObject(a, b, c, d, e, f){
-    c = 
-    {
-      startTime: d,
-      endTime: e,
-      taskitself: f,
-    },
-    HomePageUI.tasksObject[a][b] = [c],
+
+  addToScriptStorage(a,b,c, bool){
+        a[b.indexOf(c.Month)][Number(c.Date) - 1].push(c);
+
+        if(bool){
+          this.updateLocalStorage(a);
+        }
+        
+  },
+  removeFromScriptStorage(a,b,c){
+    a[b.indexOf(c.Month)][Number(c.Date) - 1].splice(a[b.indexOf(c.Month)][Number(c.Date) - 1].indexOf(c));
+    this.updateLocalStorage(a);
+    console.log(localStorage);
+  },
+  updateGridWithSavedData(a, b, Month, Date, taskHoldersList){
     
-    this.updateStorage(HomePageUI.tasksObject);
     
-    
-  }
+    console.log(Date); 
+    let checkThis = a[b.indexOf(Month)][Date - 1];
+    console.log("Under me you can see check this");
+    console.log(checkThis);
+    console.log("And under me you can see localStorage");
+    console.log(localStorage);
+    console.log("Under me you can see tasksArray");
+    console.log(a);
+    console.log(checkThis.length);
+    for(let i = 0; i < checkThis.length; i++){
+      let mojsine = document.createElement('div');
+      mojsine.outerHTML = checkThis[i].task;
+
+      taskHoldersList[checkThis[i].starttime].appendChild(mojsine);
+      console.log("Usao sam");
+    }
+       
+  },
+ 
+  
 }
 
