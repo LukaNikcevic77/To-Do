@@ -193,10 +193,10 @@ let HomePageUI = {
           Date: Number(Date),
           starttime: TimeStart,
           endtime: TimeEnd,
-          taskData: task.outerHTML
+          taskData: task.innerHTML
         }, true);
         
-        console.log(localStorage);
+        ServiceProvider.updateLocalStorage(this.tasksArray);
 
     },
 
@@ -374,7 +374,9 @@ let HomePageUI = {
             }
         }
         
-        ServiceProvider.updateScriptStorage(this.tasksArray, this.monthsArray, MonthName.textContent, Date.textContent, document.querySelectorAll('.task-holder'), true);
+        ServiceProvider.updateScriptStorage(this.tasksArray, this.monthsArray, MonthName.textContent, Date.textContent);
+        
+        ServiceProvider.updateGridWithSavedData(this.tasksArray,this.monthsArray, MonthName.textContent, Date.textContent, document.querySelectorAll('.task-holder'));
         
     }
     
@@ -451,49 +453,78 @@ let ServiceProvider = {
     let unserialized = JSON.parse(localStorage.getItem("taskstorage"));
     
   },
-  updateScriptStorage(a, b, Month, Date, taskHoldersList, bolan){
+  updateScriptStorage(a, b, Month, Date){
     let unserialized = JSON.parse(localStorage.getItem("taskstorage"));
-    a = unserialized;
-    if(bolan) {
-      this.updateGridWithSavedData(a, b, Month, Date, taskHoldersList);
+    console.log("Evo odje unserialized");
+    if(unserialized != null){
+      a[b.indexOf(Month)][Number(Date) - 1] = a[b.indexOf(Month)][Number(Date) - 1].concat(unserialized[b.indexOf(Month)][Number(Date - 1)]);
     }
+    
     
   },
 
   addToScriptStorage(a,b,c, bool){
         a[b.indexOf(c.Month)][Number(c.Date) - 1].push(c);
 
-        if(bool){
-          this.updateLocalStorage(a);
-        }
+        
         
   },
   removeFromScriptStorage(a,b,c){
     a[b.indexOf(c.Month)][Number(c.Date) - 1].splice(a[b.indexOf(c.Month)][Number(c.Date) - 1].indexOf(c));
     this.updateLocalStorage(a);
-    console.log(localStorage);
+    
   },
   updateGridWithSavedData(a, b, Month, Date, taskHoldersList){
     
-    
-    console.log(Date); 
+   
     let checkThis = a[b.indexOf(Month)][Date - 1];
-    console.log("Under me you can see check this");
-    console.log(checkThis);
-    console.log("And under me you can see localStorage");
-    console.log(localStorage);
-    console.log("Under me you can see tasksArray");
-    console.log(a);
-    console.log(checkThis.length);
+    
+    let timeHolders = document.querySelectorAll('.time');
     for(let i = 0; i < checkThis.length; i++){
+      let h = checkThis[i].starttime + 1;
+      console.log("Sta je ovo brate MOJ");
+      console.log(h);
       let mojsine = document.createElement('div');
-      mojsine.outerHTML = checkThis[i].task;
-
+      mojsine.classList.add('task');
+      mojsine.innerHTML = String(checkThis[i].taskData);
+      console.log("Ovo je moj sin dobar dan tata i tako to");
+      console.log(mojsine);
+      console.log("Ovo je lista za odstrijel taskHoldersList");
+      console.log(taskHoldersList);
       taskHoldersList[checkThis[i].starttime].appendChild(mojsine);
       console.log("Usao sam");
+
+      console.log(checkThis[i].endtime - h);
+      console.log("MAJMUNEEEE");
+      
+        if(checkThis[i].endtime - h == 1){
+          
+          taskHoldersList[checkThis[i].starttime].style.paddingBottom = '0px';
+          taskHoldersList[h].classList.add('hidden');
+          timeHolders[h].textContent = '';
+          timeHolders[h].classList.add('hidden');
+
+
+        }
+        else if(h != checkThis[i].endtime){
+         
+          taskHoldersList[checkThis[i].starttime].style.paddingBottom = '0px';
+          
+          while (h < checkThis[i].endtime){
+
+           
+            taskHoldersList[h].classList.add('hidden');
+            timeHolders[h].textContent = '';
+            timeHolders[h].classList.add('hidden');
+
+            h++;
+          }
     }
-       
-  },
+    h = checkThis.starttime + 1;
+  }
+  
+
+}
  
   
 }
