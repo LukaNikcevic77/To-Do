@@ -484,9 +484,12 @@ let ServiceProvider = {
       let h = checkThis[i].starttime + 1;
       console.log("Sta je ovo brate MOJ");
       console.log(h);
+      
       let mojsine = document.createElement('div');
       mojsine.classList.add('task');
+      
       mojsine.innerHTML = String(checkThis[i].taskData);
+      HomePageUI.scrollingListeners(mojsine, checkThis[i].starttime, checkThis[i].endtime);
       console.log("Ovo je moj sin dobar dan tata i tako to");
       console.log(mojsine);
       console.log("Ovo je lista za odstrijel taskHoldersList");
