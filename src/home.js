@@ -5,19 +5,393 @@ let HomePageUI = {
     monthsArray: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
     tasksArray: [ 
     [
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
       [ ]
     ],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    []
+    [ 
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ]
+    ],
+    [ 
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ]
+    ],
+    [ 
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ]
+    ],
+    [ 
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ]
+    ],
+    [ 
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ]
+    ],
+    [ 
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ]
+    ],
+    [ 
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ]
+    ],
+    [ 
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ]
+    ],
+    [ 
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ]
+    ],
+    [ 
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ]
+    ],
+    [ 
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ],
+      [ ]
+    ]
   ],
 
     averageFreeTime: document.querySelectorAll('.freetimeholder'),
@@ -78,7 +452,9 @@ let HomePageUI = {
         else {
           document.getElementById('Day').textContent = ServiceProvider.determinDays(document.getElementById('Month').textContent);
         }
-        
+        ServiceProvider.ClearGridForNewBorns(document.querySelectorAll('.task-holder'), document.querySelectorAll('.time'), document.querySelectorAll('.task'));
+        ServiceProvider.updateScriptStorage(this.tasksArray, this.monthsArray, document.getElementById('Month').textContent, document.getElementById('Day').textContent);
+        ServiceProvider.updateGridWithSavedData(this.tasksArray,this.monthsArray,  document.getElementById('Month').textContent, document.getElementById('Day').textContent, document.querySelectorAll('.task-holder'));
       });
       document.getElementById('nextday').addEventListener('click', (e) => {
         if(Number(document.getElementById('Day').textContent) != ServiceProvider.determinDays(document.getElementById('Month').textContent)) {
@@ -88,6 +464,9 @@ let HomePageUI = {
         else {
           document.getElementById('Day').textContent = '1';
         }
+        ServiceProvider.ClearGridForNewBorns(document.querySelectorAll('.task-holder'), document.querySelectorAll('.time'), document.querySelectorAll('.task'));
+        ServiceProvider.updateScriptStorage(this.tasksArray, this.monthsArray, document.getElementById('Month').textContent, document.getElementById('Day').textContent);
+        ServiceProvider.updateGridWithSavedData(this.tasksArray,this.monthsArray,  document.getElementById('Month').textContent, document.getElementById('Day').textContent, document.querySelectorAll('.task-holder'));
       });
       document.getElementById('prevmonth').addEventListener('click', (e) => {
         if(this.monthsArray.indexOf(document.getElementById('Month').textContent) != 0) {
@@ -99,6 +478,9 @@ let HomePageUI = {
           document.getElementById('Month').textContent = this.monthsArray[11];
           document.getElementById('Day').textContent = '1';
         }
+        ServiceProvider.ClearGridForNewBorns(document.querySelectorAll('.task-holder'), document.querySelectorAll('.time'), document.querySelectorAll('.task'));
+        ServiceProvider.updateScriptStorage(this.tasksArray, this.monthsArray, document.getElementById('Month').textContent, document.getElementById('Day').textContent);
+        ServiceProvider.updateGridWithSavedData(this.tasksArray,this.monthsArray,  document.getElementById('Month').textContent, document.getElementById('Day').textContent, document.querySelectorAll('.task-holder'));
       });
       document.getElementById('nextmonth').addEventListener('click', (e) => {
         if(this.monthsArray.indexOf(document.getElementById('Month').textContent) != 11) {
@@ -111,8 +493,11 @@ let HomePageUI = {
           document.getElementById('Month').textContent = this.monthsArray[0];
           document.getElementById('Day').textContent = '1';
         }
+        ServiceProvider.ClearGridForNewBorns(document.querySelectorAll('.task-holder'), document.querySelectorAll('.time'), document.querySelectorAll('.task'));
+        ServiceProvider.updateScriptStorage(this.tasksArray, this.monthsArray, document.getElementById('Month').textContent, document.getElementById('Day').textContent);
+        ServiceProvider.updateGridWithSavedData(this.tasksArray,this.monthsArray,  document.getElementById('Month').textContent, document.getElementById('Day').textContent, document.querySelectorAll('.task-holder'));
       });
-
+      
 
     },
 
@@ -477,8 +862,9 @@ let ServiceProvider = {
   updateGridWithSavedData(a, b, Month, Date, taskHoldersList){
     
    
-    let checkThis = a[b.indexOf(Month)][Date - 1];
-    
+    let checkThis = a[b.indexOf(Month)][Number(Date) - 1];
+    console.log("Zvao si me gospodaru a ovo je ono sto sam ti nasao ")
+    console.log(a[b.indexOf(Month)][Number(Date) - 1]);
     let timeHolders = document.querySelectorAll('.time');
     for(let i = 0; i < checkThis.length; i++){
       let h = checkThis[i].starttime + 1;
@@ -527,6 +913,28 @@ let ServiceProvider = {
   }
   
 
+},
+ClearGridForNewBorns(taskhostlers, timehostlers, taskitself){
+  console.log("Logujem se");
+  console.log(HomePageUI.tasksArray);
+  for(let i = 0;  i < 24; i++){
+    
+      if(taskitself[i] != undefined){
+        taskitself[i].remove();
+        console.log(taskitself);
+      }
+
+      if(taskhostlers[i].classList.contains('hidden')){
+        taskhostlers[i].classList.remove('hidden');
+        timehostlers[i].classList.remove('hidden');
+        timehostlers[i].textContent = timehostlers[i].dataset.clock;
+      }
+      
+
+       
+
+     
+}
 }
  
   
