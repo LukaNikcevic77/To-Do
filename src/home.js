@@ -453,6 +453,7 @@ let HomePageUI = {
           document.getElementById('Day').textContent = ServiceProvider.determinDays(document.getElementById('Month').textContent);
         }
         ServiceProvider.ClearGridForNewBorns(document.querySelectorAll('.task-holder'), document.querySelectorAll('.time'), document.querySelectorAll('.task'));
+        this.tasksArray[this.monthsArray.indexOf(document.getElementById('Month').textContent)][Number(document.getElementById('Day').textContent) - 1] = [];
         ServiceProvider.updateScriptStorage(this.tasksArray, this.monthsArray, document.getElementById('Month').textContent, document.getElementById('Day').textContent);
         ServiceProvider.updateGridWithSavedData(this.tasksArray,this.monthsArray,  document.getElementById('Month').textContent, document.getElementById('Day').textContent, document.querySelectorAll('.task-holder'));
       });
@@ -465,6 +466,7 @@ let HomePageUI = {
           document.getElementById('Day').textContent = '1';
         }
         ServiceProvider.ClearGridForNewBorns(document.querySelectorAll('.task-holder'), document.querySelectorAll('.time'), document.querySelectorAll('.task'));
+        this.tasksArray[this.monthsArray.indexOf(document.getElementById('Month').textContent)][Number(document.getElementById('Day').textContent) - 1] = [];
         ServiceProvider.updateScriptStorage(this.tasksArray, this.monthsArray, document.getElementById('Month').textContent, document.getElementById('Day').textContent);
         ServiceProvider.updateGridWithSavedData(this.tasksArray,this.monthsArray,  document.getElementById('Month').textContent, document.getElementById('Day').textContent, document.querySelectorAll('.task-holder'));
       });
@@ -479,6 +481,7 @@ let HomePageUI = {
           document.getElementById('Day').textContent = '1';
         }
         ServiceProvider.ClearGridForNewBorns(document.querySelectorAll('.task-holder'), document.querySelectorAll('.time'), document.querySelectorAll('.task'));
+        this.tasksArray[this.monthsArray.indexOf(document.getElementById('Month').textContent)][Number(document.getElementById('Day').textContent) - 1] = [];
         ServiceProvider.updateScriptStorage(this.tasksArray, this.monthsArray, document.getElementById('Month').textContent, document.getElementById('Day').textContent);
         ServiceProvider.updateGridWithSavedData(this.tasksArray,this.monthsArray,  document.getElementById('Month').textContent, document.getElementById('Day').textContent, document.querySelectorAll('.task-holder'));
       });
@@ -494,6 +497,7 @@ let HomePageUI = {
           document.getElementById('Day').textContent = '1';
         }
         ServiceProvider.ClearGridForNewBorns(document.querySelectorAll('.task-holder'), document.querySelectorAll('.time'), document.querySelectorAll('.task'));
+        this.tasksArray[this.monthsArray.indexOf(document.getElementById('Month').textContent)][Number(document.getElementById('Day').textContent) - 1] = [];
         ServiceProvider.updateScriptStorage(this.tasksArray, this.monthsArray, document.getElementById('Month').textContent, document.getElementById('Day').textContent);
         ServiceProvider.updateGridWithSavedData(this.tasksArray,this.monthsArray,  document.getElementById('Month').textContent, document.getElementById('Day').textContent, document.querySelectorAll('.task-holder'));
       });
@@ -915,8 +919,7 @@ let ServiceProvider = {
 
 },
 ClearGridForNewBorns(taskhostlers, timehostlers, taskitself){
-  console.log("Logujem se");
-  console.log(HomePageUI.tasksArray);
+  
   for(let i = 0;  i < 24; i++){
     
       if(taskitself[i] != undefined){
