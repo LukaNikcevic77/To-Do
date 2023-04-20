@@ -795,19 +795,20 @@ let ServiceProvider = {
   },
 
   validateInput(TimeStart, TimeEnd, TaskName, TaskDetail1, TaskDetail2, Month, Date){
-      
+       
     
 
-    let beginningTime = ServiceProvider.convertTo24Hour(TimeStart).match(/(?<=0)\d+|^\d{2}/); 
-    let endingTime = ServiceProvider.convertTo24Hour(TimeEnd).match(/(?<=0)\d+|^\d{2}/);
+    let beginningTime = TimeStart.match(/[1-9]{1,2}/); 
+    let endingTime = TimeEnd.match(/[1-9]{1,2}/);
+   console.log("Ovo je beginning: " + beginningTime + " a ovo je Time Start: " + TimeStart);
     let taskHolders = document.querySelectorAll('.task-holder');
     let timeHolders = document.querySelectorAll('.time');
-    console.log("OVo je beginning time: " + beginningTime);
-    console.log("Ovo je ending time " + endingTime);
+    console.log("OVo je beginning time: " + TimeStart.match(/[1-9]{1,2}/));
+    console.log("Ovo je ending time " + TimeEnd.match(/[1-9]{1,2}/));
     console.log(taskHolders[2]);
    
     if(endingTime - beginningTime < 1) {
-      console.log("Hej ovo je rez: " + (endingTime - beginningTime));
+      
       return
     }
     
