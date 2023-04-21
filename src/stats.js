@@ -2,161 +2,172 @@ import { Chart, scales } from "chart.js/auto";
 export {StatsUI};
 
 
-
+var Kurac;
 Chart.defaults.color = '#ffffff';
 Chart.defaults.font.size = window.innerWidth / 100;
 Chart.defaults.font.weight = '800';
 //Chart January
 (async function() {
-    const data = [
-      { week: 1, hours: 25 },
+  const data = [
+    { week: 1, hours: 25 },
       { week: 2, hours: 35 },
       { week: 3, hours: 60 },
       { week: 4, hours: 45 }
-     
-    ];
-    const piedata = {
-      labels: [
-        'Tasks uncompleted',
-        'Tasks completed',
-          
-      ],
-      
-      datasets: [{
-        label: 'Tasks',
-        data: [300, 50],
-        backgroundColor: [
-          '#E30606',
-          '#07B7DE',
-          
-        ],
-        hoverOffset: 4,
+   
+  ];
+  const piedata = {
+    labels: [
+      'Tasks uncompleted',
+      'Tasks completed',
         
-      }],
-
+    ],
+    
+    datasets: [{
+      label: 'Tasks',
+      data: [300, 50],
+      backgroundColor: [
+        '#E30606',
+        '#07B7DE',
+        
+      ],
+      hoverOffset: 4,
       
-      
-    };
+    }],
 
-    const config = {
-      type: 'doughnut',
-      data: piedata,
+    
+    
+  };
 
-      options: {
-        plugins: {
+  const config = {
+    type: 'doughnut',
+    data: piedata,
 
-          legend: {
-            position: 'bottom',
-            display: false,
+    options: {
+      plugins: {
 
-            labels: {
-              
+        legend: {
+          position: 'bottom',
+          display: false,
 
-              font: {
-                size: window.innerWidth / 100
-              }
+          labels: {
+            
+
+            font: {
+              size: window.innerWidth / 100
             }
+          }
+          
+        }
+      },
+      scales:{
+        
+      },
+
+    }
+  }
+
+  Kurac = new Chart(
+    document.getElementById('januarychart'),
+   
+    {
+      type: 'bar',
+      data: {
+        labels: ["1", "2", "3", "4"],
+        datasets: [
+          {
+            
+            data: data.map(row => row.hours),
+            backgroundColor: '#FFFF',
             
           }
-        },
-        scales:{
-          
-        },
+        ]
+      },
+      options: {
 
-      }
-    }
-  
-    new Chart(
-      document.getElementById('januarychart'),
-     
-      {
-        type: 'bar',
-        data: {
-          labels: ["1", "2", "3", "4"],
-          datasets: [
-            {
-              
-              data: data.map(row => row.hours),
-              backgroundColor: '#FFFF',
-              
-            }
-          ]
-        },
-        options: {
-
-            responsive: true,
-            maintainAspectRatio: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: false,
-                    
-                    },
-                    tooltip: {
-                        enabled: false
-                       },
-                   
-                },
-            scales: {
-                y: {
-                    position: "right",
-                    
-                  grid: {
-                    color: '#FFFF',
-                    lineWidth: 0.5
-                    
+          responsive: true,
+          maintainAspectRatio: true,
+          maintainAspectRatio: false,
+          plugins: {
+              legend: {
+                  display: false,
+                  
                   },
-                  border: {
-                    display: false
-                  },
-                  
-                    ticks: {
-                      
-                      padding: 20,
-
-                      
-                        color: '#FFFF'
-                        
-                    },
-                  
-                    
-                },
-                x: {
-                  
+                  tooltip: {
+                      enabled: false
+                     },
                  
-
-                  grid: {
-
-                    display: false,
-                    color: '#FFFF'
-                  }
-                },
-                yAxes: {
+              },
+          scales: {
+              y: {
+                  position: "right",
                   
-                    display: false
-                    
-                    
-                    
+                grid: {
+                  color: '#FFFF',
+                  lineWidth: 0.5
+                  
                 },
-               
-            }
+                border: {
+                  display: false
+                },
                 
-            }
-        }
-      
-    );
-    new Chart(
-      document.getElementById('januaryfreetime'),
-      config
-    )
-  })();
+                  ticks: {
+                    
+                    padding: 20,
+
+                    
+                      color: '#FFFF'
+                      
+                  },
+                
+                  
+              },
+              x: {
+                
+               
+
+                grid: {
+
+                  display: false,
+                  color: '#FFFF'
+                }
+              },
+              yAxes: {
+                
+                  display: false
+                  
+                  
+                  
+              },
+             
+          }
+              
+          }
+      }
+    
+  );
+   new Chart(
+    document.getElementById('januaryfreetime'),
+    config
+  )
+})();
+console.log(Kurac.data.datasets[0].data);
+Kurac.data.datasets[0].data[0] = 55;
+Kurac.data.datasets[0].data[1] = 75;
+Kurac.data.datasets[0].data[2] = 25;
+Kurac.data.datasets[0].data[3] = 85;
+
+
+
+
+
+
 //Chart February
-(async function() {
+ (async function() {
   const data = [
-    { week: 1, hours: 25 },
-    { week: 2, hours: 35 },
-    { week: 3, hours: 60 },
-    { week: 4, hours: 45 }
+    { week: 1, hours: 52},
+    { week: 2, hours: 52},
+    { week: 3, hours: 52},
+    { week: 4, hours: 52}
    
   ];
   const piedata = {
@@ -297,10 +308,10 @@ Chart.defaults.font.weight = '800';
 //Chart March
 (async function() {
   const data = [
-    { week: 1, hours: 25 },
-    { week: 2, hours: 35 },
-    { week: 3, hours: 60 },
-    { week: 4, hours: 45 }
+    { week: 1, hours: 52},
+    { week: 2, hours: 52},
+    { week: 3, hours: 52},
+    { week: 4, hours: 52}
    
   ];
   const piedata = {
@@ -445,12 +456,13 @@ let StatsUI = {
     taskMakingButtonHolder: document.getElementById('task_maker'),
 
   addListeners(){
-
+    console.log("USao u dil");
       this.statsButton.addEventListener('click', (e) => {
       this.calendarManager.classList.add("hidden");
       this.timeScaleManager.classList.add("hidden");
       this.statsManager.classList.remove("hidden");
       this.taskMakingButtonHolder.classList.add("hidden");
+      Kurac.update('none');
       })
   }
 

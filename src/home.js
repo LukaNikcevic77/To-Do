@@ -1,5 +1,6 @@
 export {HomePageUI};
 
+
 let HomePageUI = {
 
     monthsArray: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
@@ -642,6 +643,224 @@ let HomePageUI = {
                     i++;
               }
             }, 2000);
+            if(currentPosition[0] > 100){
+
+              switch(document.getElementById('Month').textContent){
+                case "JAN":
+                  if(Number(document.getElementById('Day').textContent) > 0 && Number(document.getElementById('Day').textContent) < 8){
+                    if(JAN[0][0].length != 0){
+                      JAN[0][0] += Number(document.getElementById('Day').textContent);
+                    }
+                    else {
+                      JAN[0][0].append(Number(document.getElementById('Day').textContent));
+                    }
+                  }
+                  else if(Number(document.getElementById('Day').textContent) > 7 && Number(document.getElementById('Day').textContent) < 15){
+                    if(JAN[1][0].length != 0){
+                      JAN[1][0] += Number(document.getElementById('Day').textContent);
+                    }
+                    else {
+                      JAN[1][0].append(Number(document.getElementById('Day').textContent));
+                    }
+                  }
+                  else if(Number(document.getElementById('Day').textContent) > 14 && Number(document.getElementById('Day').textContent) < 22){
+                    if(JAN[2][0].length != 0){
+                      JAN[2][0] += Number(document.getElementById('Day').textContent);
+                    }
+                    else {
+                      JAN[2][0].append(Number(document.getElementById('Day').textContent));
+                    }
+                  }
+                  else {
+                    if(JAN[3][0].length != 0){
+                      JAN[3][0] += Number(document.getElementById('Day').textContent);
+                    }
+                    else {
+                      JAN[3][0].append(Number(document.getElementById('Day').textContent));
+                    }
+                  }
+                break;
+                case "FEB":
+                  if(Number(document.getElementById('Day').textContent) > 0 && Number(document.getElementById('Day').textContent) < 8){
+                    if(FEB[0][0].length != 0){
+                      FEB[0][0] += Number(document.getElementById('Day').textContent);
+                    }
+                    else {
+                      FEB[0][0].append(Number(document.getElementById('Day').textContent));
+                    }
+                  }
+                  else if(Number(document.getElementById('Day').textContent) > 7 && Number(document.getElementById('Day').textContent) < 15){
+                    if(FEB[1][0].length != 0){
+                      FEB[1][0] += Number(document.getElementById('Day').textContent);
+                    }
+                    else {
+                      FEB[1][0].append(Number(document.getElementById('Day').textContent));
+                    }
+                  }
+                  else if(Number(document.getElementById('Day').textContent) > 14 && Number(document.getElementById('Day').textContent) < 22){
+                    if(FEB[2][0].length != 0){
+                      FEB[2][0] += Number(document.getElementById('Day').textContent);
+                    }
+                    else {
+                      FEB[2][0].append(Number(document.getElementById('Day').textContent));
+                    }
+                  }
+                  else {
+                    if(FEB[3][0].length != 0){
+                      FEB[3][0] += Number(document.getElementById('Day').textContent);
+                    }
+                    else {
+                      FEB[3][0].append(Number(document.getElementById('Day').textContent));
+                    }
+                  }
+                break;
+                case "MAR":
+                  if(Number(document.getElementById('Day').textContent) > 0 && Number(document.getElementById('Day').textContent) < 8){
+                    if(MAR[0][0].length != 0){
+                      MAR[0][0] += Number(document.getElementById('Day').textContent);
+                    }
+                    else {
+                      MAR[0][0].append(Number(document.getElementById('Day').textContent));
+                    }
+                  }
+                  else if(Number(document.getElementById('Day').textContent) > 7 && Number(document.getElementById('Day').textContent) < 15){
+                    if(MAR[1][0].length != 0){
+                      MAR[1][0] += Number(document.getElementById('Day').textContent);
+                    }
+                    else {
+                      MAR[1][0].append(Number(document.getElementById('Day').textContent));
+                    }
+                  }
+                  else if(Number(document.getElementById('Day').textContent) > 14 && Number(document.getElementById('Day').textContent) < 22){
+                    if(MAR[2][0].length != 0){
+                      MAR[2][0] += Number(document.getElementById('Day').textContent);
+                    }
+                    else {
+                      MAR[2][0].append(Number(document.getElementById('Day').textContent));
+                    }
+                  }
+                  else {
+                    if(MAR[3][0].length != 0){
+                      MAR[3][0] += Number(document.getElementById('Day').textContent);
+                    }
+                    else {
+                      MAR[3][0].append(Number(document.getElementById('Day').textContent));
+                    }
+                  }
+                  break;
+              }
+            }
+            else {
+              switch(document.getElementById('Month').textContent){
+                case "JAN":
+                  if(Number(document.getElementById('Day').textContent) > 0 && Number(document.getElementById('Day').textContent) < 8){
+                    if(JAN[0].length != 0){
+                      
+                      JAN[0][1] += Number(document.getElementById('Day').textContent);
+                      console.log("KITOOOO Goranj");
+                      console.log(JAN);
+                    }
+                    else {
+                      JAN[0].push(60);
+                      console.log("KITOOOO DOnja");
+                      console.log(JAN);
+                    }
+                  }
+                  else if(Number(document.getElementById('Day').textContent) > 7 && Number(document.getElementById('Day').textContent) < 15){
+                    if(JAN[1][1].length != 0){
+                      JAN[1][1] += Number(document.getElementById('Day').textContent);
+                    }
+                    else {
+                      JAN[1][1].append(Number(document.getElementById('Day').textContent));
+                    }
+                  }
+                  else if(Number(document.getElementById('Day').textContent) > 14 && Number(document.getElementById('Day').textContent) < 22){
+                    if(JAN[2][1].length != 0){
+                      JAN[2][1] += Number(document.getElementById('Day').textContent);
+                    }
+                    else {
+                      JAN[2][1].append(Number(document.getElementById('Day').textContent));
+                    }
+                  }
+                  else {
+                    if(JAN[3][1].length != 0){
+                      JAN[3][1] += Number(document.getElementById('Day').textContent);
+                    }
+                    else {
+                      JAN[3][1].append(Number(document.getElementById('Day').textContent));
+                    }
+                  }
+                break;
+                case "FEB":
+                  if(Number(document.getElementById('Day').textContent) > 0 && Number(document.getElementById('Day').textContent) < 8){
+                    if(FEB[0][0].length != 0){
+                      FEB[0][0] += Number(document.getElementById('Day').textContent);
+                    }
+                    else {
+                      FEB[0][0].append(Number(document.getElementById('Day').textContent));
+                    }
+                  }
+                  else if(Number(document.getElementById('Day').textContent) > 7 && Number(document.getElementById('Day').textContent) < 15){
+                    if(FEB[0][1].length != 0){
+                      FEB[0][1] += Number(document.getElementById('Day').textContent);
+                    }
+                    else {
+                      FEB[1][1].append(Number(document.getElementById('Day').textContent));
+                    }
+                  }
+                  else if(Number(document.getElementById('Day').textContent) > 14 && Number(document.getElementById('Day').textContent) < 22){
+                    if(FEB[2][1].length != 0){
+                      FEB[2][1] += Number(document.getElementById('Day').textContent);
+                    }
+                    else {
+                      FEB[2][1].append(Number(document.getElementById('Day').textContent));
+                    }
+                  }
+                  else {
+                    if(FEB[3][1].length != 0){
+                      FEB[3][1] += Number(document.getElementById('Day').textContent);
+                    }
+                    else {
+                      FEB[3][1].append(Number(document.getElementById('Day').textContent));
+                    }
+                  }
+                break;
+                case "MAR":
+                  if(Number(document.getElementById('Day').textContent) > 0 && Number(document.getElementById('Day').textContent) < 8){
+                    if(MAR[0][1].length != 0){
+                      MAR[0][1] += Number(document.getElementById('Day').textContent);
+                    }
+                    else {
+                      MAR[0][1].append(Number(document.getElementById('Day').textContent));
+                    }
+                  }
+                  else if(Number(document.getElementById('Day').textContent) > 7 && Number(document.getElementById('Day').textContent) < 15){
+                    if(MAR[1][1].length != 0){
+                      MAR[1][1] += Number(document.getElementById('Day').textContent);
+                    }
+                    else {
+                      MAR[1][1].append(Number(document.getElementById('Day').textContent));
+                    }
+                  }
+                  else if(Number(document.getElementById('Day').textContent) > 14 && Number(document.getElementById('Day').textContent) < 22){
+                    if(MAR[2][1].length != 0){
+                      MAR[2][1] += Number(document.getElementById('Day').textContent);
+                    }
+                    else {
+                      MAR[2][1].append(Number(document.getElementById('Day').textContent));
+                    }
+                  }
+                  else {
+                    if(MAR[3][1].length != 0){
+                      MAR[3][1] += Number(document.getElementById('Day').textContent);
+                    }
+                    else {
+                      MAR[3][1].append(Number(document.getElementById('Day').textContent));
+                    }
+                  }
+                  break;
+              }
+            }
           }
           
           else {
@@ -939,7 +1158,7 @@ ClearGridForNewBorns(taskhostlers, timehostlers, taskitself){
 
      
 }
-}
+},
  
   
 }
