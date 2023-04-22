@@ -1,4 +1,10 @@
+import { StatsUI } from "./stats";
+import { JanuarBar } from "./stats";
+import { FebruarChart } from "./stats";
+import { MarchChart } from "./stats";
+
 export {HomePageUI};
+
 
 
 let HomePageUI = {
@@ -587,6 +593,7 @@ let HomePageUI = {
         }, true);
         
         ServiceProvider.updateLocalStorage(this.tasksArray);
+        ServiceProvider.addOneToLocalStorageForWeek(TimeEnd - TimeStart, "-");
 
     },
 
@@ -644,222 +651,11 @@ let HomePageUI = {
               }
             }, 2000);
             if(currentPosition[0] > 100){
-
-              switch(document.getElementById('Month').textContent){
-                case "JAN":
-                  if(Number(document.getElementById('Day').textContent) > 0 && Number(document.getElementById('Day').textContent) < 8){
-                    if(JAN[0][0].length != 0){
-                      JAN[0][0] += Number(document.getElementById('Day').textContent);
-                    }
-                    else {
-                      JAN[0][0].append(Number(document.getElementById('Day').textContent));
-                    }
-                  }
-                  else if(Number(document.getElementById('Day').textContent) > 7 && Number(document.getElementById('Day').textContent) < 15){
-                    if(JAN[1][0].length != 0){
-                      JAN[1][0] += Number(document.getElementById('Day').textContent);
-                    }
-                    else {
-                      JAN[1][0].append(Number(document.getElementById('Day').textContent));
-                    }
-                  }
-                  else if(Number(document.getElementById('Day').textContent) > 14 && Number(document.getElementById('Day').textContent) < 22){
-                    if(JAN[2][0].length != 0){
-                      JAN[2][0] += Number(document.getElementById('Day').textContent);
-                    }
-                    else {
-                      JAN[2][0].append(Number(document.getElementById('Day').textContent));
-                    }
-                  }
-                  else {
-                    if(JAN[3][0].length != 0){
-                      JAN[3][0] += Number(document.getElementById('Day').textContent);
-                    }
-                    else {
-                      JAN[3][0].append(Number(document.getElementById('Day').textContent));
-                    }
-                  }
-                break;
-                case "FEB":
-                  if(Number(document.getElementById('Day').textContent) > 0 && Number(document.getElementById('Day').textContent) < 8){
-                    if(FEB[0][0].length != 0){
-                      FEB[0][0] += Number(document.getElementById('Day').textContent);
-                    }
-                    else {
-                      FEB[0][0].append(Number(document.getElementById('Day').textContent));
-                    }
-                  }
-                  else if(Number(document.getElementById('Day').textContent) > 7 && Number(document.getElementById('Day').textContent) < 15){
-                    if(FEB[1][0].length != 0){
-                      FEB[1][0] += Number(document.getElementById('Day').textContent);
-                    }
-                    else {
-                      FEB[1][0].append(Number(document.getElementById('Day').textContent));
-                    }
-                  }
-                  else if(Number(document.getElementById('Day').textContent) > 14 && Number(document.getElementById('Day').textContent) < 22){
-                    if(FEB[2][0].length != 0){
-                      FEB[2][0] += Number(document.getElementById('Day').textContent);
-                    }
-                    else {
-                      FEB[2][0].append(Number(document.getElementById('Day').textContent));
-                    }
-                  }
-                  else {
-                    if(FEB[3][0].length != 0){
-                      FEB[3][0] += Number(document.getElementById('Day').textContent);
-                    }
-                    else {
-                      FEB[3][0].append(Number(document.getElementById('Day').textContent));
-                    }
-                  }
-                break;
-                case "MAR":
-                  if(Number(document.getElementById('Day').textContent) > 0 && Number(document.getElementById('Day').textContent) < 8){
-                    if(MAR[0][0].length != 0){
-                      MAR[0][0] += Number(document.getElementById('Day').textContent);
-                    }
-                    else {
-                      MAR[0][0].append(Number(document.getElementById('Day').textContent));
-                    }
-                  }
-                  else if(Number(document.getElementById('Day').textContent) > 7 && Number(document.getElementById('Day').textContent) < 15){
-                    if(MAR[1][0].length != 0){
-                      MAR[1][0] += Number(document.getElementById('Day').textContent);
-                    }
-                    else {
-                      MAR[1][0].append(Number(document.getElementById('Day').textContent));
-                    }
-                  }
-                  else if(Number(document.getElementById('Day').textContent) > 14 && Number(document.getElementById('Day').textContent) < 22){
-                    if(MAR[2][0].length != 0){
-                      MAR[2][0] += Number(document.getElementById('Day').textContent);
-                    }
-                    else {
-                      MAR[2][0].append(Number(document.getElementById('Day').textContent));
-                    }
-                  }
-                  else {
-                    if(MAR[3][0].length != 0){
-                      MAR[3][0] += Number(document.getElementById('Day').textContent);
-                    }
-                    else {
-                      MAR[3][0].append(Number(document.getElementById('Day').textContent));
-                    }
-                  }
-                  break;
-              }
+              ServiceProvider.addOneToLocalStorageForWeek(timeToEnd - timeToStart, "+");
+              
             }
             else {
-              switch(document.getElementById('Month').textContent){
-                case "JAN":
-                  if(Number(document.getElementById('Day').textContent) > 0 && Number(document.getElementById('Day').textContent) < 8){
-                    if(JAN[0].length != 0){
-                      
-                      JAN[0][1] += Number(document.getElementById('Day').textContent);
-                      console.log("KITOOOO Goranj");
-                      console.log(JAN);
-                    }
-                    else {
-                      JAN[0].push(60);
-                      console.log("KITOOOO DOnja");
-                      console.log(JAN);
-                    }
-                  }
-                  else if(Number(document.getElementById('Day').textContent) > 7 && Number(document.getElementById('Day').textContent) < 15){
-                    if(JAN[1][1].length != 0){
-                      JAN[1][1] += Number(document.getElementById('Day').textContent);
-                    }
-                    else {
-                      JAN[1][1].append(Number(document.getElementById('Day').textContent));
-                    }
-                  }
-                  else if(Number(document.getElementById('Day').textContent) > 14 && Number(document.getElementById('Day').textContent) < 22){
-                    if(JAN[2][1].length != 0){
-                      JAN[2][1] += Number(document.getElementById('Day').textContent);
-                    }
-                    else {
-                      JAN[2][1].append(Number(document.getElementById('Day').textContent));
-                    }
-                  }
-                  else {
-                    if(JAN[3][1].length != 0){
-                      JAN[3][1] += Number(document.getElementById('Day').textContent);
-                    }
-                    else {
-                      JAN[3][1].append(Number(document.getElementById('Day').textContent));
-                    }
-                  }
-                break;
-                case "FEB":
-                  if(Number(document.getElementById('Day').textContent) > 0 && Number(document.getElementById('Day').textContent) < 8){
-                    if(FEB[0][0].length != 0){
-                      FEB[0][0] += Number(document.getElementById('Day').textContent);
-                    }
-                    else {
-                      FEB[0][0].append(Number(document.getElementById('Day').textContent));
-                    }
-                  }
-                  else if(Number(document.getElementById('Day').textContent) > 7 && Number(document.getElementById('Day').textContent) < 15){
-                    if(FEB[0][1].length != 0){
-                      FEB[0][1] += Number(document.getElementById('Day').textContent);
-                    }
-                    else {
-                      FEB[1][1].append(Number(document.getElementById('Day').textContent));
-                    }
-                  }
-                  else if(Number(document.getElementById('Day').textContent) > 14 && Number(document.getElementById('Day').textContent) < 22){
-                    if(FEB[2][1].length != 0){
-                      FEB[2][1] += Number(document.getElementById('Day').textContent);
-                    }
-                    else {
-                      FEB[2][1].append(Number(document.getElementById('Day').textContent));
-                    }
-                  }
-                  else {
-                    if(FEB[3][1].length != 0){
-                      FEB[3][1] += Number(document.getElementById('Day').textContent);
-                    }
-                    else {
-                      FEB[3][1].append(Number(document.getElementById('Day').textContent));
-                    }
-                  }
-                break;
-                case "MAR":
-                  if(Number(document.getElementById('Day').textContent) > 0 && Number(document.getElementById('Day').textContent) < 8){
-                    if(MAR[0][1].length != 0){
-                      MAR[0][1] += Number(document.getElementById('Day').textContent);
-                    }
-                    else {
-                      MAR[0][1].append(Number(document.getElementById('Day').textContent));
-                    }
-                  }
-                  else if(Number(document.getElementById('Day').textContent) > 7 && Number(document.getElementById('Day').textContent) < 15){
-                    if(MAR[1][1].length != 0){
-                      MAR[1][1] += Number(document.getElementById('Day').textContent);
-                    }
-                    else {
-                      MAR[1][1].append(Number(document.getElementById('Day').textContent));
-                    }
-                  }
-                  else if(Number(document.getElementById('Day').textContent) > 14 && Number(document.getElementById('Day').textContent) < 22){
-                    if(MAR[2][1].length != 0){
-                      MAR[2][1] += Number(document.getElementById('Day').textContent);
-                    }
-                    else {
-                      MAR[2][1].append(Number(document.getElementById('Day').textContent));
-                    }
-                  }
-                  else {
-                    if(MAR[3][1].length != 0){
-                      MAR[3][1] += Number(document.getElementById('Day').textContent);
-                    }
-                    else {
-                      MAR[3][1].append(Number(document.getElementById('Day').textContent));
-                    }
-                  }
-                  break;
-              }
+              ServiceProvider.addOneToLocalStorageForWeek(timeToEnd - timeToStart, "+");
             }
           }
           
@@ -1159,7 +955,117 @@ ClearGridForNewBorns(taskhostlers, timehostlers, taskitself){
      
 }
 },
- 
+ addOneToLocalStorageForWeek(number, operation) {
+  const currentDate = Number(document.getElementById('Day').textContent);
+  const currentMonth = document.getElementById('Month').textContent;
+  
+  const currentWeek = Math.ceil((currentDate) / 7);
+
+  let weekToAddTo = null;
+  switch (currentWeek) {
+    case 1:
+      weekToAddTo = "week1";
+      break;
+    case 2:
+      weekToAddTo = "week2";
+      break;
+    case 3:
+      weekToAddTo = "week3";
+      break;
+    case 4:
+      weekToAddTo = "week4";
+      break;
+    default:
+      // Do nothing
+      break;
+  }
+
+  if (weekToAddTo) {
+    const key = `${currentMonth}-${weekToAddTo}`;
+    let value;
+    if(localStorage.getItem(key) === 'NaN' || localStorage.getItem(key) == null){
+      localStorage.setItem(key, '0');
+      value = localStorage.getItem(key);
+    }
+    else {
+       value = localStorage.getItem(key);
+    }
+    
+    
+    if(operation === '+'){
+      const newValue = parseInt(value, 10) + number;
+      localStorage.setItem(key, newValue);
+    }
+    else if(operation === '-'){
+      console.log(operation);
+      const newValue = parseInt(value, 10) - number;
+      localStorage.setItem(key, newValue);
+    }
+    const updateValue = localStorage.getItem(key);
+    const parsedValue = parseInt(updateValue, 10);
+
+    switch(currentMonth){
+      case "JAN":
+        StatsUI.updateJanuar(168 + parsedValue, currentWeek - 1);
+        break;
+      case "FEB":
+        StatsUI.updateFebruary(168 + parsedValue, currentWeek - 1);
+        break;
+      case "MAR":
+        StatsUI.updateMarc(168 + parsedValue, currentWeek - 1);
+        break;
+    }
+    
+  }
+
+  
+},
+updateStatsBackEnd(a, b, c){
+          for(let i = 0; i < 4; i++){
+            let value;
+            let key = "JAN-week" + i.toString();
+            if(localStorage.getItem(key) === 'NaN' || localStorage.getItem(key) == null){
+              localStorage.setItem(key, '0');
+              value = localStorage.getItem(key);
+            }
+            else {
+              value = localStorage.getItem(key);
+           }
+
+            a.data.datasets[0].data[i] = parseInt(value, 10);
+          }
+
+          for(let i = 0; i < 4; i++){
+            let value;
+            let key = "FEB-week" + i.toString();
+            if(localStorage.getItem(key) === 'NaN' || localStorage.getItem(key) == null){
+              localStorage.setItem(key, '0');
+              value = localStorage.getItem(key);
+            }
+            else {
+              value = localStorage.getItem(key);
+           }
+           
+            b.data.datasets[0].data[i] = parseInt(value, 10);
+          }
+
+          for(let i = 0; i < 4; i++){
+            let value;
+            let key = "MAR-week" + i.toString();
+            if(localStorage.getItem(key) === 'NaN' || localStorage.getItem(key) == null){
+              localStorage.setItem(key, '0');
+              value = localStorage.getItem(key);
+            }
+            else {
+              value = localStorage.getItem(key);
+           }
+           
+            c.data.datasets[0].data[i] = parseInt(value, 10);
+          }
+}
+
+
   
 }
 
+ServiceProvider.updateStatsBackEnd(JanuarBar, FebruarChart, MarchChart);

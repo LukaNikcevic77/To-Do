@@ -1,8 +1,10 @@
 import { Chart, scales } from "chart.js/auto";
 export {StatsUI};
+export {JanuarBar, FebruarChart, MarchChart};
 
-
-var Kurac;
+var JanuarBar;
+var FebruarChart;
+var MarchChart;
 Chart.defaults.color = '#ffffff';
 Chart.defaults.font.size = window.innerWidth / 100;
 Chart.defaults.font.weight = '800';
@@ -66,7 +68,7 @@ Chart.defaults.font.weight = '800';
     }
   }
 
-  Kurac = new Chart(
+  JanuarBar = new Chart(
     document.getElementById('januarychart'),
    
     {
@@ -150,11 +152,6 @@ Chart.defaults.font.weight = '800';
     config
   )
 })();
-console.log(Kurac.data.datasets[0].data);
-Kurac.data.datasets[0].data[0] = 55;
-Kurac.data.datasets[0].data[1] = 75;
-Kurac.data.datasets[0].data[2] = 25;
-Kurac.data.datasets[0].data[3] = 85;
 
 
 
@@ -221,7 +218,7 @@ Kurac.data.datasets[0].data[3] = 85;
     }
   }
 
-  new Chart(
+  FebruarChart = new Chart(
     document.getElementById('februarychart'),
     
     {
@@ -365,7 +362,7 @@ Kurac.data.datasets[0].data[3] = 85;
     }
   }
 
-  new Chart(
+  MarchChart = new Chart(
     document.getElementById('marchchart'),
     
     {
@@ -462,8 +459,26 @@ let StatsUI = {
       this.timeScaleManager.classList.add("hidden");
       this.statsManager.classList.remove("hidden");
       this.taskMakingButtonHolder.classList.add("hidden");
-      Kurac.update('none');
+      JanuarBar.update('none');
       })
+  },
+
+  updateJanuar(a, i){
+    
+    JanuarBar.data.datasets[0].data[i] = a;
+    console.log(JanuarBar.data.datasets[0].data);
+    
+  },
+  updateFebruary(a, i){
+    console.log(FebruarChart.data.datasets[0].data);
+    FebruarChart.data.datasets[0].data[i] = a;
+    
+  },
+
+  updateMarc(a, i){
+    console.log(MarchChart.data.datasets[0].data);
+    MarchChart.data.datasets[0].data[i] = a;
+
   }
 
 }
