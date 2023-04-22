@@ -78,7 +78,7 @@ Chart.defaults.font.weight = '800';
         datasets: [
           {
             
-            data: data.map(row => row.hours),
+            data: data,
             backgroundColor: '#FFFF',
             
           }
@@ -465,19 +465,19 @@ let StatsUI = {
 
   updateJanuar(a, i){
     
-    JanuarBar.data.datasets[0].data[i] = a;
+    JanuarBar.data.datasets[0].data[i] += a;
     console.log(JanuarBar.data.datasets[0].data);
     
   },
   updateFebruary(a, i){
     console.log(FebruarChart.data.datasets[0].data);
-    FebruarChart.data.datasets[0].data[i] = a;
+    FebruarChart.data.datasets[0].data[i] += a;
     
   },
 
   updateMarc(a, i){
     console.log(MarchChart.data.datasets[0].data);
-    MarchChart.data.datasets[0].data[i] = a;
+    MarchChart.data.datasets[0].data[i] += a;
 
   }
 

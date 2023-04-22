@@ -983,8 +983,8 @@ ClearGridForNewBorns(taskhostlers, timehostlers, taskitself){
   if (weekToAddTo) {
     const key = `${currentMonth}-${weekToAddTo}`;
     let value;
-    if(localStorage.getItem(key) === 'NaN' || localStorage.getItem(key) == null){
-      localStorage.setItem(key, '0');
+    if(localStorage.getItem(key) === 'NaN' || localStorage.getItem(key) == null || localStorage.getItem(key) === '0'){
+      localStorage.setItem(key, '168');
       value = localStorage.getItem(key);
     }
     else {
@@ -993,26 +993,35 @@ ClearGridForNewBorns(taskhostlers, timehostlers, taskitself){
     
     
     if(operation === '+'){
-      const newValue = parseInt(value, 10) + number;
-      localStorage.setItem(key, newValue);
+      const newValue = parseInt(value, 10);
+      console.log(newValue);
+      console.log(number);
+      console.log("Mekekekekkekeke");
+      localStorage.setItem(key, newValue + number);
     }
     else if(operation === '-'){
+      
+      const newValue = parseInt(value, 10);
       console.log(operation);
-      const newValue = parseInt(value, 10) - number;
-      localStorage.setItem(key, newValue);
+      console.log(newValue);
+      console.log(number);
+      console.log("Mekekekekkekeke 2");
+      localStorage.setItem(key, newValue - number);
     }
     const updateValue = localStorage.getItem(key);
     const parsedValue = parseInt(updateValue, 10);
 
     switch(currentMonth){
       case "JAN":
-        StatsUI.updateJanuar(168 + parsedValue, currentWeek - 1);
+        console.log(parseInt(localStorage.getItem(key)));
+            console.log("Ovo ti je value sine");
+        StatsUI.updateJanuar(Number(operation + number), currentWeek - 1);
         break;
       case "FEB":
-        StatsUI.updateFebruary(168 + parsedValue, currentWeek - 1);
+        StatsUI.updateFebruary(Number(operation + number), currentWeek - 1);
         break;
       case "MAR":
-        StatsUI.updateMarc(168 + parsedValue, currentWeek - 1);
+        StatsUI.updateMarc(Number(operation + number), currentWeek - 1);
         break;
     }
     
@@ -1024,22 +1033,22 @@ updateStatsBackEnd(a, b, c){
           for(let i = 0; i < 4; i++){
             let value;
             let key = "JAN-week" + i.toString();
-            if(localStorage.getItem(key) === 'NaN' || localStorage.getItem(key) == null){
-              localStorage.setItem(key, '0');
+            if(localStorage.getItem(key) === 'NaN' || localStorage.getItem(key) == null || localStorage.getItem(key) === '0'){
+              localStorage.setItem(key, '168');
               value = localStorage.getItem(key);
             }
             else {
               value = localStorage.getItem(key);
            }
-
+            
             a.data.datasets[0].data[i] = parseInt(value, 10);
           }
 
           for(let i = 0; i < 4; i++){
             let value;
             let key = "FEB-week" + i.toString();
-            if(localStorage.getItem(key) === 'NaN' || localStorage.getItem(key) == null){
-              localStorage.setItem(key, '0');
+            if(localStorage.getItem(key) === 'NaN' || localStorage.getItem(key) == null || localStorage.getItem(key) === '0'){
+              localStorage.setItem(key, '168');
               value = localStorage.getItem(key);
             }
             else {
@@ -1052,8 +1061,8 @@ updateStatsBackEnd(a, b, c){
           for(let i = 0; i < 4; i++){
             let value;
             let key = "MAR-week" + i.toString();
-            if(localStorage.getItem(key) === 'NaN' || localStorage.getItem(key) == null){
-              localStorage.setItem(key, '0');
+            if(localStorage.getItem(key) === 'NaN' || localStorage.getItem(key) == null || localStorage.getItem(key) === '0'){
+              localStorage.setItem(key, '168');
               value = localStorage.getItem(key);
             }
             else {
