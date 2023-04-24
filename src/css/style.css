@@ -29,10 +29,37 @@ html body header h1 {
   margin-left: 3vw;
   margin-right: 35vw;
 }
+@media (max-width: 768px) {
+  html body header h1 {
+    font-size: 5.5vw;
+    margin-right: 25vw;
+  }
+}
 html body header p {
   font-family: "Inter", sans-serif;
   font-size: 3vw;
   font-weight: 400;
+}
+@media (max-width: 768px) {
+  html body header p {
+    font-size: 4vw;
+  }
+}
+html body header #home {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+html body header #home:hover {
+  cursor: pointer;
+}
+html body header #stats {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+html body header #stats:hover {
+  cursor: pointer;
 }
 html body header .task-creator {
   font-family: "Inter", sans-serif;
@@ -65,9 +92,22 @@ html body header .task-creator h1 {
 html body header .task-creator h1:hover {
   cursor: pointer;
 }
+@media (max-width: 768px) {
+  html body header .task-creator h1 {
+    margin-left: 18vw;
+    font-size: 4vw;
+    margin-bottom: 6vw;
+    margin-top: -10vw;
+  }
+}
 html body header .task-creator label {
   margin-top: -2vw;
   margin-bottom: -1vw;
+}
+@media (max-width: 768px) {
+  html body header .task-creator label {
+    font-size: 2.5vw;
+  }
 }
 html body header .task-creator input, html body header .task-creator button {
   font-family: "Inter", sans-serif;
@@ -85,6 +125,13 @@ html body header .task-creator input, html body header .task-creator button {
 html body header .task-creator input:focus, html body header .task-creator button:focus {
   outline: none;
 }
+@media (max-width: 768px) {
+  html body header .task-creator input, html body header .task-creator button {
+    height: 6vw;
+    width: 28vw;
+    font-size: 2.5vw;
+  }
+}
 html body header .task-creator #submit {
   margin-top: -2vw;
 }
@@ -97,6 +144,21 @@ html body header .task-creator #collapse {
 html body header .task-creator #collapse:hover {
   cursor: pointer;
 }
+@media (max-width: 768px) {
+  html body header .task-creator {
+    top: 20vw;
+    width: 20vw;
+    height: 6vw;
+    border-radius: 0px 0px 5px 0px;
+    padding-top: 12vw;
+  }
+}
+@media (max-width: 768px) {
+  html body header {
+    height: 20vw;
+    gap: 3vw;
+  }
+}
 html body #calendar_managment {
   color: white;
   display: flex;
@@ -108,11 +170,21 @@ html body #calendar_managment {
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
 }
+@media (max-width: 768px) {
+  html body #calendar_managment {
+    font-size: 4vw;
+  }
+}
 html body #calendar_managment p {
   font-size: 4vw;
   color: #9E9CA4;
   font-weight: 700;
   margin-top: -2vw;
+}
+@media (max-width: 768px) {
+  html body #calendar_managment p {
+    font-size: 8vw;
+  }
 }
 html body #calendar_managment .monthholder {
   display: flex;
@@ -131,6 +203,11 @@ html body #calendar_managment .dayholder #prevday, html body #calendar_managment
   font-size: 2vw;
   margin-top: -2vw;
 }
+@media (max-width: 768px) {
+  html body #calendar_managment .dayholder #prevday, html body #calendar_managment .dayholder #nextday {
+    font-size: 4vw;
+  }
+}
 html body #calendar_managment #prevday {
   transform: rotate(180deg);
 }
@@ -138,8 +215,18 @@ html body #calendar_managment #prevmonth {
   transform: rotate(180deg);
   font-size: 2.5vw;
 }
+@media (max-width: 768px) {
+  html body #calendar_managment #prevmonth {
+    font-size: 4vw;
+  }
+}
 html body #calendar_managment #nextmonth {
   font-size: 2.5vw;
+}
+@media (max-width: 768px) {
+  html body #calendar_managment #nextmonth {
+    font-size: 4vw;
+  }
 }
 html body #time_scale {
   display: grid;
@@ -155,6 +242,11 @@ html body #time_scale {
 html body #time_scale::-webkit-scrollbar {
   display: none;
 }
+@media (max-width: 768px) {
+  html body #time_scale {
+    max-height: 60vh;
+  }
+}
 html body #time_scale .time {
   grid-area: "time";
   color: #9E9CA4;
@@ -165,6 +257,12 @@ html body #time_scale .time {
   padding-right: 1vw;
   margin-top: -1vw;
 }
+@media (max-width: 768px) {
+  html body #time_scale .time {
+    font-size: 3.6vw;
+    margin-top: -2vw;
+  }
+}
 html body #time_scale .task-holder {
   grid-area: "task";
   padding-top: 0.3vw;
@@ -174,6 +272,11 @@ html body #time_scale .task-holder {
   height: 10vw;
   width: auto;
   margin-right: 10vw;
+}
+@media (max-width: 768px) {
+  html body #time_scale .task-holder {
+    height: 25vw;
+  }
 }
 html body #time_scale .task-holder .task {
   height: 100%;
@@ -198,6 +301,16 @@ html body #time_scale .task-holder .task .details p {
   font-size: 2.2vw;
   font-weight: 400;
 }
+@media (max-width: 768px) {
+  html body #time_scale .task-holder .task .details p {
+    font-size: 4.5vw;
+  }
+}
+@media (max-width: 768px) {
+  html body #time_scale .task-holder .task .details {
+    font-size: 3vw;
+  }
+}
 html body #statsholder {
   display: flex;
   gap: 8vw;
@@ -207,6 +320,14 @@ html body #statsholder {
   margin-top: 3vw;
   width: 90vw;
   height: auto;
+}
+@media (max-width: 768px) {
+  html body #statsholder {
+    flex-direction: column;
+    width: 60vw;
+    height: 80vh;
+    gap: 0vw;
+  }
 }
 html body #statsholder .month {
   height: auto;
@@ -220,6 +341,11 @@ html body #statsholder .month .monthname {
   font-size: 1.3vw;
   margin-bottom: 0.5vw;
 }
+@media (max-width: 768px) {
+  html body #statsholder .month .monthname {
+    font-size: 5vw;
+  }
+}
 html body #statsholder .statsblock {
   display: flex;
   flex-direction: column;
@@ -232,22 +358,37 @@ html body #statsholder .statsblock {
   font-size: 0.8vw;
   border-radius: 0.6vw;
 }
-html body #statsholder .statsblock .averagefreetimetitle {
+@media (max-width: 768px) {
+  html body #statsholder .statsblock {
+    height: 40vw;
+  }
+}
+html body #statsholder .statsblock .editme {
+  height: 10vw;
+  width: 15vw;
+}
+@media (max-width: 768px) {
+  html body #statsholder .statsblock .editme {
+    height: 20vw;
+    width: 30vw;
+  }
+}
+html body #statsholder .averagefreetimetitle {
   font-size: 1.3vw;
   text-align: center;
   margin-top: 1.3vw;
   color: #F3F1F9;
 }
-html body #statsholder .statsblock .freetimeholder {
+html body #statsholder .freetimeholder {
   margin-top: 0.2vw;
   margin-bottom: 2vw;
   font-size: 3vw;
   color: #FFFFFF;
 }
-html body .hidden {
+html .hidden {
   display: none !important;
 }
-html body .fadeAwayAnim {
+html .fadeAwayAnim {
   animation: fadeAway 1s forwards;
 }
 

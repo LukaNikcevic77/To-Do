@@ -87,7 +87,7 @@ Chart.defaults.font.weight = '800';
       options: {
 
           responsive: true,
-          maintainAspectRatio: true,
+          
           maintainAspectRatio: false,
           plugins: {
               legend: {
@@ -451,6 +451,9 @@ let StatsUI = {
     statsManager: document.getElementById('statsholder'),
     timeScaleManager: document.getElementById('time_scale'),
     taskMakingButtonHolder: document.getElementById('task_maker'),
+    averagefreetimeHolderJan: document.getElementById('avragefreeJan'),
+    averagefreetimeHolderFeb: document.getElementById('avragefreeFeb'),
+    averagefreetimeHolderMar: document.getElementById('avragefreeMar'),
 
   addListeners(){
     console.log("USao u dil");
@@ -459,7 +462,9 @@ let StatsUI = {
       this.timeScaleManager.classList.add("hidden");
       this.statsManager.classList.remove("hidden");
       this.taskMakingButtonHolder.classList.add("hidden");
-      JanuarBar.update('none');
+      
+      
+      
       })
   },
 
@@ -467,18 +472,28 @@ let StatsUI = {
     
     JanuarBar.data.datasets[0].data[i] += a;
     console.log(JanuarBar.data.datasets[0].data);
-    
+    JanuarBar.update('none');
+    this.updateAverages();
   },
   updateFebruary(a, i){
     console.log(FebruarChart.data.datasets[0].data);
     FebruarChart.data.datasets[0].data[i] += a;
-    
+    FebruarChart.update('none');
+    this.updateAverages();
   },
 
   updateMarc(a, i){
     console.log(MarchChart.data.datasets[0].data);
     MarchChart.data.datasets[0].data[i] += a;
+    MarchChart.update('none');
+    this.updateAverages();
+  },
 
+  updateAverages(){
+    this.averagefreetimeHolderMar.textContent = (MarchChart.data.datasets[0].data[0] + MarchChart.data.datasets[0].data[1] + MarchChart.data.datasets[0].data[2] + MarchChart.data.datasets[0].data[3]) / 4 + "h";
+    this.averagefreetimeHolderFeb.textContent = (FebruarChart.data.datasets[0].data[0] + FebruarChart.data.datasets[0].data[1] + FebruarChart.data.datasets[0].data[2] + FebruarChart.data.datasets[0].data[3]) / 4 + "h";
+    this.averagefreetimeHolderJan.textContent = (JanuarBar.data.datasets[0].data[0] + JanuarBar.data.datasets[0].data[1]  + JanuarBar.data.datasets[0].data[2]  + JanuarBar.data.datasets[0].data[3] ) / 4 + "h";
+    console.log(FebruarChart.data.datasets[0].data[0]);
   }
 
 }

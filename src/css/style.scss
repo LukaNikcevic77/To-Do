@@ -34,13 +34,32 @@ html {
                 font-weight: 600;
                 margin-left: 3vw;
                 margin-right: 35vw;
+                @media (max-width: "768px"){
+                        font-size: 5.5vw;
+                        margin-right: 25vw;
+                }
             }
             p {
                 font-family: 'Inter', sans-serif;
                 font-size: 3vw;
                 font-weight: 400;
-            }
 
+                @media (max-width: "768px"){
+                    font-size: 4vw;
+                }
+            }
+            #home {
+                user-select: none;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            #stats {
+                user-select: none;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
             .task-creator {
                 
                 font-family: 'Inter', sans-serif;
@@ -68,15 +87,23 @@ html {
                    margin-top: -2vw;
                    margin-bottom: 3vw;
                     margin-left: 28.5vw;
-
+                    
                     &:hover {
                         cursor: pointer;
                     }
-                    
+                    @media (max-width: "768px"){
+                          margin-left: 18vw;
+                          font-size: 4vw;
+                          margin-bottom: 6vw;
+                          margin-top: -10vw;
+                    }
                 }
                 label {
                     margin-top: -2vw;
                     margin-bottom: -1vw;
+                    @media (max-width: "768px"){
+                        font-size: 2.5vw;
+                    }
                 }
 
                 input, button {
@@ -95,6 +122,12 @@ html {
                     &:focus {
                         outline: none;
                     }
+                    @media (max-width: "768px"){
+                        height: 6vw;
+                        width: 28vw;
+                        font-size: 2.5vw;
+                    }
+                    
                     
                 }
 
@@ -110,6 +143,17 @@ html {
                         cursor: pointer;
                     }
                 }
+                @media (max-width: "768px"){
+                        top: 20vw;
+                        width: 20vw;
+                        height: 6vw;
+                        border-radius: 0px 0px 5px 0px;
+                        padding-top: 12vw;
+                }
+            }
+            @media (max-width: "768px"){
+                height: 20vw;
+                gap: 3vw;
             }
         }
         #calendar_managment {
@@ -122,12 +166,18 @@ html {
             font-size: 2vw;
             font-family: 'Montserrat', sans-serif;
             font-weight: bold;
-            
+            @media (max-width: "768px"){
+                font-size: 4vw;
+            }
             p {
                 font-size: 4vw;
                 color: $gray-light;
                 font-weight: 700;
                 margin-top: -2vw;
+
+                @media (max-width: "768px"){
+                    font-size: 8vw;
+                }
             }
 
             .monthholder {
@@ -148,19 +198,31 @@ html {
                 #prevday, #nextday {
                     font-size: 2vw;
                     margin-top: -2vw;
+
+                    @media (max-width: "768px"){
+                            font-size: 4vw;
+                    }
                 }
             }
 
             #prevday {
                 transform: rotate(180deg);
+                
             }
 
             #prevmonth {
                 transform: rotate(180deg);
                 font-size: 2.5vw;
+
+                @media (max-width: "768px"){
+                    font-size: 4vw;
+                }
             }
             #nextmonth {
                 font-size: 2.5vw;
+                @media (max-width: "768px"){
+                    font-size: 4vw;
+                }
             }
             
         }
@@ -180,7 +242,9 @@ html {
             &::-webkit-scrollbar {
                 display: none;
             }
-
+            @media (max-width: "768px"){
+                max-height: 60vh;
+            }
             .time {
                 grid-area: 'time';
                 color: $gray-light;
@@ -190,6 +254,11 @@ html {
                 text-align: right;
                 padding-right: 1vw;
                 margin-top: -1vw;
+
+                @media (max-width: "768px"){
+                        font-size: 3.6vw;
+                        margin-top: -2vw;
+                }
             }
 
             .task-holder {
@@ -203,7 +272,9 @@ html {
                 height: 10vw;
                 width: auto;
                 margin-right: 10vw;
-
+                @media (max-width: "768px"){
+                    height: 25vw;
+                }
                 .task {
                         height: 100%;
                         width: 100%;
@@ -229,6 +300,13 @@ html {
                             p {
                                 font-size: 2.2vw;
                                 font-weight: 400;
+
+                                @media (max-width: "768px"){
+                                        font-size: 4.5vw;
+                                }
+                            }
+                            @media (max-width: "768px"){
+                                    font-size: 3vw;
                             }
                         }
                 }
@@ -245,6 +323,13 @@ html {
             width: 90vw;
             height: auto;
             
+            @media (max-width: "768px"){
+                flex-direction: column;
+                width: 60vw;
+                height: 80vh;
+                gap: 0vw;
+                
+            }
 
             .month {
                 height: auto;
@@ -254,9 +339,13 @@ html {
                 font-family: 'Inter', sans-serif;
                 font-weight: bold;
                 
+                
                 .monthname {
                     font-size: 1.3vw;
                     margin-bottom: 0.5vw;
+                    @media (max-width: "768px"){
+                            font-size: 5vw;
+                    }
                 }
             }
 
@@ -272,20 +361,43 @@ html {
                 background-color: #525254;
                 font-size: 0.8vw;
                 border-radius: 0.6vw;
+
+                @media (max-width: "768px"){
+                    height: 40vw;
+                     }
+
+                .editme{
+                    height: 10vw;
+                    width: 15vw;
+
+                    @media (max-width: "768px"){
+                    height: 20vw;
+                    width: 30vw;
+                     }
+            
+                    }
+                }
+                
+
                 .averagefreetimetitle {
                     font-size: 1.3vw;
                     text-align: center;
                     margin-top: 1.3vw;
                     color: #F3F1F9;
+
+                    
                 }
                 .freetimeholder{
                     margin-top: 0.2vw;
                     margin-bottom: 2vw;
                     font-size: 3vw;
                     color: #FFFFFF;
+                    
                 }
-
+                
             }
+            
+            
         }
 
         
@@ -297,7 +409,7 @@ html {
         }
         
     }
-}
+
 
 @keyframes fadeAway {
             from {
@@ -309,3 +421,4 @@ html {
                 opacity: (0);
             }
 }
+

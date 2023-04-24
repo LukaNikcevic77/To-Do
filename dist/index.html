@@ -18,10 +18,10 @@
 </head>
 <body id="body">
     <header>
-        <h1 id="home">planIT</h1>
+        <h1 id="home" draggable="false">planIT</h1>
         <p>Projects</p>
         <p>Teams</p>
-        <p id="stats">Stats</p>
+        <p id="stats" draggable="false">Stats</p>
         <div id="task_maker" class="task-creator">
             <h1 id="addtasktext">Add task</h1>
             <label for="clock-time-start">Tasks starts at:</label>
@@ -49,14 +49,14 @@
             <h1 class="monthname">January</h1>
             <div class="statsblock">
                     <h1 class="freetimetitle">FREE TIME</h1>
-                    <div style="width: 15vw; height: 10vw;font-family: 'Inter', sans-serif; font-weight: 800; margin-right: -1vw;"><canvas id="januarychart"></canvas></div>
+                    <div class="editme" style="font-family: 'Inter', sans-serif; font-weight: 800; margin-right: -1vw;"><canvas id="januarychart"></canvas></div>
                     
                     
                     
                     <h1 class="averagefreetimetitle">AVERAGE FREE TIME</h1>
-                    <h1 class="freetimeholder">1h</h1>
+                    <h1 class="freetimeholder" id="avragefreeJan">1h</h1>
 
-                    <div style="width: 10vw;font-family: 'Inter', sans-serif; font-weight: 800; margin-right: -1vw; margin-top: -0.6vw;"><canvas id="januaryfreetime"></canvas></div>
+                    <div class="piegraph" style="width: 10vw;font-family: 'Inter', sans-serif; font-weight: 800; margin-right: -1vw; margin-top: -0.6vw;"><canvas id="januaryfreetime"></canvas></div>
             </div>
 
         </span>
@@ -64,10 +64,10 @@
             <h1 class="monthname">February</h1>
             <div class="statsblock">
                 <h1 class="freetimetitle">FREE TIME</h1>
-                <div style="width: 15vw; height: 10vw; font-family: 'Inter', sans-serif; font-weight: 800; margin-right: -1vw;"><canvas id="februarychart"></canvas></div>
+                <div class="editme" style="font-family: 'Inter', sans-serif; font-weight: 800; margin-right: -1vw;"><canvas id="februarychart"></canvas></div>
                     <h1 class="averagefreetimetitle">AVERAGE FREE TIME</h1>
-                    <h1 class="freetimeholder">1h</h1>
-                    <div style="width: 10vw;font-family: 'Inter', sans-serif; font-weight: 800; margin-right: -1vw; margin-top: -0.6vw;"><canvas id="februaryfreetime"></canvas></div>
+                    <h1 class="freetimeholder" id="avragefreeFeb">1h</h1>
+                    <div class="piegraph"  style="width: 10vw;font-family: 'Inter', sans-serif; font-weight: 800; margin-right: -1vw; margin-top: -0.6vw;"><canvas id="februaryfreetime"></canvas></div>
                 
             </div>
 
@@ -76,10 +76,10 @@
             <h1 class="monthname">March</h1>
             <div class="statsblock">
                 <h1 class="freetimetitle">FREE TIME</h1>
-                <div style="width: 15vw; height: 10vw;font-family: 'Inter', sans-serif; font-weight: 800; margin-right: -1vw;"><canvas id="marchchart"></canvas></div>
+                <div class="editme" style="font-family: 'Inter', sans-serif; font-weight: 800; margin-right: -1vw;"><canvas id="marchchart"></canvas></div>
                     <h1 class="averagefreetimetitle">AVERAGE FREE TIME</h1>
-                    <h1 class="freetimeholder">1h</h1>
-                    <div style="width:10vw;font-family: 'Inter', sans-serif; font-weight: 800; margin-right: -1vw; margin-top: -0.6vw;"><canvas id="marchfreetime"></canvas></div>
+                    <h1 class="freetimeholder" id="avragefreeMar">1h</h1>
+                    <div class="piegraph" style="width:10vw;font-family: 'Inter', sans-serif; font-weight: 800; margin-right: -1vw; margin-top: -0.6vw;"><canvas id="marchfreetime"></canvas></div>
                 
             </div>
         </span>

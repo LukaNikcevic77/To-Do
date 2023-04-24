@@ -671,7 +671,7 @@ let HomePageUI = {
                 e.preventDefault();
                 const x = e.pageX - ourholder.offsetLeft;
                 
-                const walk = - (x - startX) / 5;
+                const walk = - (x - startX) / 1;
                 console.log(ourholder);
                 console.log(ourholder.style);
                 ourholder.style.position = "relative";
@@ -1079,3 +1079,4 @@ updateStatsBackEnd(a, b, c){
 }
 
 ServiceProvider.updateStatsBackEnd(JanuarBar, FebruarChart, MarchChart);
+StatsUI.updateAverages();
