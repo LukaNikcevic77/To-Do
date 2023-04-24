@@ -248,7 +248,7 @@ html body .hidden {
   display: none !important;
 }
 html body .fadeAwayAnim {
-  animation: fadeAway 2s forwards;
+  animation: fadeAway 1s forwards;
 }
 
 @keyframes fadeAway {

@@ -42,6 +42,7 @@ html {
             }
 
             .task-creator {
+                
                 font-family: 'Inter', sans-serif;
                     font-weight: 800;
                     font-size: 1.5vw;
@@ -292,7 +293,7 @@ html {
             display: none !important;
         }
         .fadeAwayAnim {
-                animation: fadeAway 2s forwards;
+                animation: fadeAway 1s forwards;
         }
         
     }

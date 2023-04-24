@@ -630,13 +630,14 @@ let HomePageUI = {
           if(currentPosition[0] > 100 || currentPosition[0] < -100){
             
             ourholder.classList.add("fadeAwayAnim");
+            ServiceProvider.removeFromScriptStorage(this.tasksArray, this.monthsArray, {
+              Month: document.getElementById('Month').textContent,
+              Date: Number(document.getElementById('Day').textContent),
+              taskData: ourholder.outerHTML
+            })
             setTimeout(() => {
               ourholder.remove();
-              ServiceProvider.removeFromScriptStorage(this.tasksArray, this.monthsArray, {
-                Month: document.getElementById('Month').textContent,
-                Date: Number(document.getElementById('Day').textContent),
-                taskData: ourholder.outerHTML
-              })
+              
               let i = timeToStart;
                console.log(i);
               let b = timeToEnd;
@@ -649,7 +650,7 @@ let HomePageUI = {
                     timeHostlers[i].classList.remove('hidden');
                     i++;
               }
-            }, 2000);
+            }, 1000);
             if(currentPosition[0] > 100){
               ServiceProvider.addOneToLocalStorageForWeek(timeToEnd - timeToStart, "+");
               
@@ -827,7 +828,7 @@ let ServiceProvider = {
       return
     }
     
-    else if(taskHolders[beginningTime].hasChildNodes() || taskHolders[Number(beginningTime) + 1].classList.contains('hidden') || taskHolders[Number(endingTime) - 1].classList.contains('hidden')){
+    else if(taskHolders[beginningTime].hasChildNodes() || taskHolders[Number(beginningTime) + 1].classList.contains('hidden') || taskHolders[Number(endingTime) - 1].classList.contains('hidden') || TimeStart > TimeEnd){
           return;
     }
    
